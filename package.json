@@ -2,6 +2,9 @@
   "name": "testask-bills-client",
   "version": "0.0.1",
   "private": true,
+  "engines": {
+    "node": "18.12.1"
+  },
   "dependencies": {
     "@capacitor/app": "4.1.1",
     "@capacitor/core": "4.6.3",
@@ -13,19 +16,27 @@
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^12.6.3",
+    "@types/i18next": "^13.0.0",
     "@types/jest": "^26.0.20",
     "@types/node": "^12.19.15",
     "@types/react": "^18.0.17",
     "@types/react-dom": "^18.0.6",
+    "@types/react-query": "^1.2.9",
     "@types/react-router": "^5.1.11",
     "@types/react-router-dom": "^5.1.7",
+    "formik": "^2.2.9",
     "history": "^4.9.0",
+    "i18next": "^22.4.10",
+    "i18next-browser-languagedetector": "^7.0.1",
     "ionicons": "^6.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-i18next": "^12.1.5",
+    "react-query": "^3.39.3",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "^5.0.0",
+    "styled-components": "^5.3.6",
     "typescript": "^4.1.3",
     "web-vitals": "^0.2.4",
     "workbox-background-sync": "^5.1.4",
@@ -42,7 +53,7 @@
     "workbox-streams": "^5.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "react-scripts --max_old_space_size=2560 start",
     "build": "react-scripts build",
     "test": "react-scripts test --transformIgnorePatterns 'node_modules/(?!(@ionic/react|@ionic/react-router|@ionic/core|@stencil/core|ionicons)/)'",
     "eject": "react-scripts eject"
