@@ -2,7 +2,7 @@ import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
   appId: 'io.ionic.starter',
-  appName: 'testask-bills-client',
+  appName: 'asdasd',
   webDir: 'build',
   bundledWebRuntime: false
 };
