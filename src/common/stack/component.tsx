@@ -9,7 +9,7 @@ const Component:React.FC<{
   justifyContent?: string;
   alignItems?: string;
   width?: string;
-}> = ({children, gap, justifyContent, alignItems, width}) => {
+}> = ({children, gap=0, justifyContent="center", alignItems="center", width=""}) => {
   return (
     <Stack gap={gap}
            justifyContent={justifyContent}
@@ -24,10 +24,10 @@ const Stack = styled.div`
   display: flex;
   margin: 0 auto;
   flex-direction: row;
-  justify-content: ${({justifyContent}:StylingProps) => justifyContent ? justifyContent : "center"};
-  align-items: ${({alignItems}: StylingProps) => alignItems ? alignItems : "center"};
-  gap: ${({gap}: StylingProps) => gap ? gap + "px" : "0"};
-  max-width: ${({width}: StylingProps) => width ? width + "%" : ""};
+  justify-content: ${({justifyContent}:StylingProps) => justifyContent};
+  align-items: ${({alignItems}: StylingProps) => alignItems};
+  gap: ${({gap}: StylingProps) => gap + "px"};
+  max-width: ${({width}: StylingProps) => width + "%"};
 `
 
 export default Component;
