@@ -4,24 +4,18 @@ import styled from "styled-components";
 import {useTranslation} from "react-i18next";
 import {Field} from "formik";
 
-interface PropTypes {
+const Component: React.FC<{
   label?: string,
   placeholder?: string
-  name?: string
-}
-
-
-
-const Component = (props: PropTypes) => {
-
-
+  name: string
+}> = ({label, placeholder, name}) => {
   const {t} = useTranslation()
   return (
-      <div>
-        <TextElem weight="bold" tid={props.label ? props.label : ""}/>
-        <Field placeholder={props.placeholder ? t(props.placeholder) : ""} name={props.name} as={Input}>
-        </Field>
-      </div>
+    <div>
+      {label && <TextElem weight="bold" tid={label}/>}
+      <Field placeholder={placeholder ? t(placeholder) : ""} name={name} as={Input}>
+      </Field>
+    </div>
   )
 };
 
