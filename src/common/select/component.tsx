@@ -1,30 +1,24 @@
-import {ReactNode} from 'react';
+import React from 'react';
 import styled from "styled-components";
 import {TextElem} from "../text-elem";
 import {Field} from "formik";
 
-interface PropTypes {
+const Component: React.FC<{
   label: string
-  icon?: string
-  children?:ReactNode
-  name?:string
-  optionList:{ value: string, label: string }[]
-  handleChange?: Function
-  innerRef?:React.Ref<any>
-}
-
-
-const Component = (props: PropTypes) => {
+  name: string
+  optionList: { value: string, label: string }[]
+  innerRef?: React.Ref<any>
+}> = ({label, name, optionList, innerRef}) => {
   return (
-        <div>
-          <TextElem weight="bold" size={8} tid={props.label ? props.label : ""}/>
-          <Field innerRef={props.innerRef} name={props.name} as={Select}>
-            <option value=""></option>
-            {props.optionList.map(option => {
-              return <option key={option.value} value={option.value}>{option.label}</option>;
-            })}
-          </Field>
-        </div>
+    <div>
+      <TextElem weight="bold" size={8} tid={label ? label : ""}/>
+      <Field innerRef={innerRef} name={name} as={Select}>
+        <option value=""></option>
+        {optionList.map(option => {
+          return <option key={option.value} value={option.value}>{option.label}</option>;
+        })}
+      </Field>
+    </div>
   );
 };
 
@@ -37,7 +31,7 @@ const Select = styled.select`
   padding-top: 14px;
   padding-bottom: 14px;
   font-size: 16px;
-  width:100%;
+  width: 100%;
 `
 
 export default Component;
