@@ -1,5 +1,5 @@
 import React from 'react';
-import {IonContent, IonItem, IonPage, IonRouterLink} from "@ionic/react";
+import {IonContent, IonItem, IonRouterLink} from "@ionic/react";
 import {ImageElem} from "../common/image-elem";
 import ChevronLeft from "../assets/svg/chevron-left.svg"
 import styled from "styled-components";
@@ -47,7 +47,7 @@ const Create = () => {
           </IonRouterLink>
         </BackButton>
         <ItemWrapper slot="">
-          <TextElem weight="bold" size={9} tid="bill.header.create"/>
+          <TextElem weight="bold" size={9} tid="BILL.HEADER.CREATE"/>
         </ItemWrapper>
       </Toolbar>
       <IonContent>

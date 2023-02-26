@@ -1,30 +1,29 @@
 import React from 'react';
 import {useTranslation} from "react-i18next";
 import styled from "styled-components";
+import {StylingProps} from "./const";
 
 
-interface propTypes {
+const Component: React.FC<{
   size?: number;
   color?: string,
   tid?: string,
   weight?: string;
-  text?: string;
-}
-
-const Component = (props: propTypes) => {
+  children?: React.ReactNode
+}> = ({size, color, tid, weight, children}) => {
   const {t} = useTranslation()
   return (
-    <TextStyled weight={props.weight} color={props.color}
-                size={props.size}>{props.tid ? t(props.tid) : ""}{props.text}</TextStyled>
+    <TextStyled weight={weight} color={color}
+                size={size}>{tid ? t(tid) : children}</TextStyled>
   );
 };
 
 const TextStyled = styled.p`
-  color: ${(props: propTypes) => props.color ? props.color : "black"};
+  color: ${({color}:StylingProps) => color ? color : "black"};
   font-family: Manrope, sans-serif;
-  font-size: ${(props: propTypes) => props.size ? props.size * 2 + "px" : "16px"};
+  font-size: ${({size}:StylingProps) => size ? size * 2 + "px" : "16px"};
   margin: 0;
-  font-weight: ${(props: propTypes) => props.weight ? props.weight : "regular"};
+  font-weight: ${({weight}: StylingProps) => weight ? weight : "regular"};
 `;
 
 export default Component;

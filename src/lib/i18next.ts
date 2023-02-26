@@ -3,7 +3,7 @@ import Bill from "../lang/ua/bill.json"
 import {initReactI18next} from "react-i18next";
 import LanguageDetector from 'i18next-browser-languagedetector';
 
-const resources = {ua: {translation: {bill:Bill} }}
+const resources = {ua: {translation: {BILL:Bill} }}
 
 
 i18n

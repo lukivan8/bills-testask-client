@@ -1,4 +1,4 @@
-import {IonContent, IonPage, IonRouterLink} from '@ionic/react';
+import {IonContent, IonRouterLink} from '@ionic/react';
 import {TextElem} from "../common/text-elem";
 import {ImageElem} from "../common/image-elem";
 import NoteIcon from "../assets/svg/note-text.svg"
@@ -29,18 +29,7 @@ const formatDate = (timestamp: string) => {
   return timestamp;
 }
 
-const formatLabel = (initLabel:string) => {
-  switch (initLabel) {
-    case ("internet"):
-      return "Оплата інтернет послуг"
-    case ("commun"):
-      return "Оплата коммунальних послуг"
-    case ("education"):
-      return "Оплата освіти"
-    default:
-      return initLabel
-  }
-}
+
 
 const Home = () => {
     const {data, isLoading} = useQuery('bills', async () => {
@@ -54,7 +43,7 @@ const Home = () => {
       <StyledIonPage>
         <Toolbar>
           <ItemWrapper slot="start">
-            <TextElem size={9} weight="bold" color="black" tid="bill.header.history"/>
+            <TextElem size={9} weight="bold" color="black" tid="BILL.HEADER.HISTORY"/>
           </ItemWrapper>
           <ItemWrapper slot="end">
             <IonRouterLink href="/create">
@@ -64,15 +53,15 @@ const Home = () => {
         </Toolbar>
         <IonContent>
           <ListLayout>
-            {isLoading ? <TextElem size={10} text="Loading..."/> :
+            {isLoading ? <TextElem size={10}>Loading...</TextElem> :
               data.map((bill: BillData) => {
                 return (<Card key={bill.billId}>
                   <Stack alignItems="start" justifyContent="none">
-                    <TextElem size={9} text={formatLabel(bill.transactionType)}/>
+                    <TextElem size={9} tid={`BILL.SERVICE_LABEL[${bill.transactionType}]`}/>
                   </Stack>
                   <Stack alignItems="end" justifyContent="space-between">
-                    <TextElem color="secondary" size={7} text={formatDate(bill.creationTime)}/>
-                    <TextElem size={10} text={String(bill.paymentAmount.toFixed(2))}/>
+                    <TextElem color="secondary" size={7}>{formatDate(bill.creationTime)}</TextElem>
+                    <TextElem size={10}>{bill.paymentAmount.toFixed(2)}</TextElem>
                   </Stack>
                 </Card>)
               })
