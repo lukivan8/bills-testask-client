@@ -52,7 +52,7 @@ const Create = () => {
         </ItemWrapper>
       </Toolbar>
       <IonContent>
-        <ListLayout gap={1.625}>
+        <ListLayout gap={26}>
           <BillForm submit={handleSubmit}/>
         </ListLayout>
       </IonContent>
