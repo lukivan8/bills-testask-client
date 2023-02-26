@@ -54,8 +54,6 @@ const Create = () => {
         <ListLayout gap={1.625}>
           <BillForm submit={handleSubmit}/>
         </ListLayout>
-
-
       </IonContent>
     </StyledIonPage>
   );
