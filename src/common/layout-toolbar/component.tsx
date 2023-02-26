@@ -2,14 +2,11 @@ import React, {ReactNode} from 'react';
 import styled from "styled-components";
 import {IonToolbar} from "@ionic/react";
 
-interface PropTypes {
-  children:ReactNode;
-}
 
-const Component = (props:PropTypes) => {
+const Component:React.FC<{children:ReactNode}> = ({children}) => {
   return (
     <Container>
-      {props.children}
+      {children}
     </Container>
   );
 };
