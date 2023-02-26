@@ -1,23 +1,23 @@
 import React, {ReactNode} from 'react';
 import styled from "styled-components";
 import {IonItem} from "@ionic/react";
+import {SLOT} from "./const";
 
-interface PropTypes {
-  slot?:string;
-  children:ReactNode;
-}
 
-const Component = (props:PropTypes) => {
+const Component: React.FC<{
+  slot?: SLOT;
+  children: ReactNode;
+}> = ({slot, children}) => {
   return (
-    <Item slot={props.slot} lines = "none">
-      {props.children}
+    <Item slot={slot} lines="none">
+      {children}
     </Item>
   );
 };
 
 const Item = styled(IonItem)`
   --ion-background-color: none;
-  --background:none;
+  --background: none;
   --padding-start: 5px;
   --ion-safe-area-left: 5px;
 `

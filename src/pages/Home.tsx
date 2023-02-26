@@ -10,6 +10,7 @@ import {ListLayout} from "../common/list-layout";
 import {useQuery} from "react-query";
 import React from "react";
 import {StyledIonPage} from "../theme/global.styled";
+import {SLOT} from "../common/item-wrapper/const";
 
 
 export interface BillData {
@@ -42,10 +43,10 @@ const Home = () => {
     return (
       <StyledIonPage>
         <Toolbar>
-          <ItemWrapper slot="start">
+          <ItemWrapper slot={SLOT.START}>
             <TextElem size={9} weight="bold" color="black" tid="BILL.HEADER.HISTORY"/>
           </ItemWrapper>
-          <ItemWrapper slot="end">
+          <ItemWrapper slot={SLOT.END}>
             <IonRouterLink href="/create">
               <ImageElem src={NoteIcon} width={24} height={24}/>
             </IonRouterLink>

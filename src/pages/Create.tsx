@@ -11,6 +11,7 @@ import {useMutation} from "react-query";
 import {BillData} from "./Home";
 import {BillForm} from "../epic/bill-create-form";
 import {StyledIonPage} from "../theme/global.styled";
+import {SLOT} from "../common/item-wrapper/const";
 
 const BackButton = styled(IonItem)`
   --ion-item-background: #2C2C2C;
@@ -46,7 +47,7 @@ const Create = () => {
             <ImageElem src={ChevronLeft}/>
           </IonRouterLink>
         </BackButton>
-        <ItemWrapper slot="">
+        <ItemWrapper slot={SLOT.DEFAULT}>
           <TextElem weight="bold" size={9} tid="BILL.HEADER.CREATE"/>
         </ItemWrapper>
       </Toolbar>
