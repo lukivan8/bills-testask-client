@@ -31,7 +31,7 @@ const Component = (props: PropTypes) => {
         <Input name="privateAccount" label="BILL.FORM_LABEL.ACCOUNT" placeholder="BILL.FORM_PLACEHOLDER.ACCOUNT"/>
         <Input name="paymentAmount" label="BILL.FORM_LABEL.PAYMENT" placeholder="BILL.FORM_PLACEHOLDER.PAYMENT"/>
       </ListLayout>
-      <Stack width="90" justifyContent="space-between" gap={1}>
+      <Stack width="90" justifyContent="space-between" gap={16}>
         <Button fill={BUTTON_FILL.OUTLINE} label="BILL.FORM_BUTTON.CANCEL"/>
         <Button type={BUTTON_TYPE.SUBMIT} label="BILL.FORM_BUTTON.CREATE"/>
       </Stack>
