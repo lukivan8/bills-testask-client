@@ -1,14 +1,14 @@
 import React from 'react';
 
-interface PropTypes {
-  src:any;
-  width?:number;
-  height?:number;
-}
 
-const Component = (props:PropTypes) => {
+const Component: React.FC<{
+  src: any;
+  width?: number;
+  height?: number;
+  alt?:string;
+}> = ({src, width, height, alt}) => {
   return (
-    <img src={props.src} alt="alt" width={props.width} height={props.height}/>
+    <img src={src} alt={alt} width={width} height={height}/>
   );
 };
 
