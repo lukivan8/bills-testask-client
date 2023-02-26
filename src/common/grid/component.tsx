@@ -1,22 +1,21 @@
 import {ReactNode} from 'react';
 import styled from "styled-components";
+import {StylingProps} from "./const";
 
-interface PropTypes {
-  gap?:number;
-  children?:ReactNode
-}
-
-const Component = (props:PropTypes) => {
+const Component: React.FC<{
+  gap?: number;
+  children?: ReactNode
+}> = ({gap, children}) => {
   return (
-    <Grid>
-      {props.children}
+    <Grid gap={gap}>
+      {children}
     </Grid>
   );
 };
 
 const Grid = styled.div`
   display: grid;
-  gap: ${(props:PropTypes) => props.gap ? props.gap : "1rem"};
+  gap: ${({gap}: StylingProps) => gap ? gap : "16px"};
   width: 90%;
   margin: 0 auto;
 `
