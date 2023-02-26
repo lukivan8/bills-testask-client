@@ -2,15 +2,10 @@ import React, {ReactNode} from 'react';
 import {IonCard} from "@ionic/react";
 import styled from "styled-components";
 
-interface PropTypes {
-  children?:ReactNode;
-
-}
-
-const Component = (props:PropTypes) => {
+const Component: React.FC<{ children?: ReactNode }> = ({children}) => {
   return (
     <Card>
-      {props.children}
+      {children}
     </Card>
   );
 };
