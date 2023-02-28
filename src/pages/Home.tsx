@@ -11,6 +11,7 @@ import {useQuery} from "react-query";
 import React from "react";
 import {StyledIonPage} from "../theme/global.styled";
 import {SLOT} from "../common/item-wrapper/const";
+import {ALIGN_ITEMS, JUSTIFY_CONTENT} from "../common/stack/const";
 
 
 export interface BillData {
@@ -57,10 +58,10 @@ const Home = () => {
             {isLoading ? <TextElem size={10}>Loading...</TextElem> :
               data.map((bill: BillData) => {
                 return (<Card key={bill.billId}>
-                  <Stack alignItems="start" justifyContent="none">
+                  <Stack alignItems={ALIGN_ITEMS.FLEX_START} justifyContent={JUSTIFY_CONTENT.UNSET}>
                     <TextElem size={9} tid={`BILL.SERVICE_LABEL[${bill.transactionType}]`}/>
                   </Stack>
-                  <Stack alignItems="end" justifyContent="space-between">
+                  <Stack alignItems={ALIGN_ITEMS.FLEX_END} justifyContent={JUSTIFY_CONTENT.SPACE_BETWEEN}>
                     <TextElem color="secondary" size={7}>{formatDate(bill.creationTime)}</TextElem>
                     <TextElem size={10}>{bill.paymentAmount.toFixed(2)}</TextElem>
                   </Stack>
