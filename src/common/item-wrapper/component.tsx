@@ -1,11 +1,11 @@
 import React, {ReactNode} from 'react';
 import styled from "styled-components";
 import {IonItem} from "@ionic/react";
-import {SLOT} from "./const";
+import {SLOT_TYPE} from "./const";
 
 
 const Component: React.FC<{
-  slot?: SLOT;
+  slot?: SLOT_TYPE;
   children: ReactNode;
 }> = ({slot, children}) => {
   return (

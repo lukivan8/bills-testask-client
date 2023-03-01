@@ -1,10 +1,8 @@
 import React from "react";
-import {FONT_WEIGHT_TYPE, TEXT_COLOR_TYPE} from "../../theme/text-style";
+import {FONT_SIZE_TYPE, FONT_WEIGHT_TYPE, TEXT_COLOR_TYPE} from "../../theme/text-style";
 
 export interface STYLING_PROPS {
-  size?: number;
-  color?: TEXT_COLOR_TYPE,
-  tid?: string,
-  weight?: FONT_WEIGHT_TYPE;
-  children?: React.ReactNode
+  size: FONT_SIZE_TYPE;
+  color: TEXT_COLOR_TYPE,
+  weight: FONT_WEIGHT_TYPE;
 }

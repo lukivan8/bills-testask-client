@@ -11,7 +11,7 @@ const Component: React.FC<{
 }> = ({label, name, optionList, innerRef}) => {
   return (
     <div>
-      <TextElem weight="bold" size={8} tid={label ? label : ""}/>
+      <TextElem weight="bold" size="input" tid={label ? label : ""}/>
       <Field innerRef={innerRef} name={name} as={Select}>
         <option value=""></option>
         {optionList.map(option => {

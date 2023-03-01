@@ -10,9 +10,6 @@ import {ListLayout} from "../common/list-layout";
 import {useQuery} from "react-query";
 import React from "react";
 import {StyledIonPage} from "../theme/global.styled";
-import {SLOT} from "../common/item-wrapper/const";
-import {ALIGN_ITEMS, JUSTIFY_CONTENT} from "../common/stack/const";
-import {TEXT_COLOR_ENUM} from "../theme/text-style";
 import Moment from "react-moment";
 
 
@@ -37,10 +34,10 @@ const Home = () => {
     return (
       <StyledIonPage>
         <Toolbar>
-          <ItemWrapper slot={SLOT.START}>
-            <TextElem size={9} weight="bold" color={TEXT_COLOR_ENUM.PRIMARY} tid="BILL.HEADER.HISTORY"/>
+          <ItemWrapper slot="start">
+            <TextElem size="label" weight="bold" color="primary" tid="BILL.HEADER.HISTORY"/>
           </ItemWrapper>
-          <ItemWrapper slot={SLOT.END}>
+          <ItemWrapper slot="end">
             <IonRouterLink href="/create">
               <ImageElem src={NoteIcon} width={24} height={24}/>
             </IonRouterLink>
@@ -48,15 +45,15 @@ const Home = () => {
         </Toolbar>
         <IonContent>
           <ListLayout>
-            {isLoading ? <TextElem size={10}>Loading...</TextElem> :
+            {isLoading ? <TextElem size="focus">Loading...</TextElem> :
               data.map((bill: BillData) => {
                 return (<Card key={bill.billId}>
-                  <Stack alignItems={ALIGN_ITEMS.FLEX_START} justifyContent={JUSTIFY_CONTENT.UNSET}>
-                    <TextElem size={9} tid={"BILL.SERVICE_LABEL." + bill.transactionType}/>
+                  <Stack alignItems="flex-start" justifyContent="unset">
+                    <TextElem size="label" tid={"BILL.SERVICE_LABEL." + bill.transactionType}/>
                   </Stack>
-                  <Stack alignItems={ALIGN_ITEMS.FLEX_END} justifyContent={JUSTIFY_CONTENT.SPACE_BETWEEN}>
-                    <TextElem color={TEXT_COLOR_ENUM.SECONDARY} size={7}><Moment format="YYYY/MM/DD HH:mm">{bill.creationTime}</Moment></TextElem>
-                    <TextElem size={10}>{bill.paymentAmount.toFixed(2)}</TextElem>
+                  <Stack alignItems="flex-end" justifyContent="space-between">
+                    <TextElem color="secondary" size="small"><Moment format="YYYY/MM/DD HH:mm">{bill.creationTime}</Moment></TextElem>
+                    <TextElem size="focus">{bill.paymentAmount.toFixed(2)}</TextElem>
                   </Stack>
                 </Card>)
               })
