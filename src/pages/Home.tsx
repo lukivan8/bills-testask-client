@@ -13,6 +13,7 @@ import {StyledIonPage} from "../theme/global.styled";
 import {SLOT} from "../common/item-wrapper/const";
 import {ALIGN_ITEMS, JUSTIFY_CONTENT} from "../common/stack/const";
 import {FONT_WEIGHT_ENUM, TEXT_COLOR_ENUM} from "../theme/text-style";
+import Moment from "react-moment";
 
 
 export interface BillData {
@@ -22,14 +23,6 @@ export interface BillData {
   privateAccount: number,
   paymentAmount: number,
   creationTime: string
-}
-
-const formatDate = (timestamp: string) => {
-  console.log(timestamp)
-  timestamp = timestamp.replaceAll("-", "/");
-  timestamp = timestamp.replace("T", " ");
-  timestamp = timestamp.slice(0, 16)
-  return timestamp;
 }
 
 
@@ -62,7 +55,7 @@ const Home = () => {
                     <TextElem size={9} tid={"BILL.SERVICE_LABEL." + bill.transactionType}/>
                   </Stack>
                   <Stack alignItems={ALIGN_ITEMS.FLEX_END} justifyContent={JUSTIFY_CONTENT.SPACE_BETWEEN}>
-                    <TextElem color={TEXT_COLOR_ENUM.SECONDARY} size={7}>{formatDate(bill.creationTime)}</TextElem>
+                    <TextElem color={TEXT_COLOR_ENUM.SECONDARY} size={7}><Moment format="YYYY/MM/DD HH:mm">{bill.creationTime}</Moment></TextElem>
                     <TextElem size={10}>{bill.paymentAmount.toFixed(2)}</TextElem>
                   </Stack>
                 </Card>)
