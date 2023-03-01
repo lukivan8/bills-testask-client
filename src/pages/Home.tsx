@@ -35,7 +35,7 @@ const formatDate = (timestamp: string) => {
 
 const Home = () => {
     const {data, isLoading} = useQuery('bills', async () => {
-      const data = await fetch('https://testask-bills-api.herokuapp.com/bill/list')
+      const data = await fetch('http://localhost:3000/bill/list')
       const result = await data.json();
       console.log(result)
       return result;
@@ -59,7 +59,7 @@ const Home = () => {
               data.map((bill: BillData) => {
                 return (<Card key={bill.billId}>
                   <Stack alignItems={ALIGN_ITEMS.FLEX_START} justifyContent={JUSTIFY_CONTENT.UNSET}>
-                    <TextElem size={9} tid={`BILL.SERVICE_LABEL[${bill.transactionType}]`}/>
+                    <TextElem size={9} tid={"BILL.SERVICE_LABEL."+bill.transactionType}/>
                   </Stack>
                   <Stack alignItems={ALIGN_ITEMS.FLEX_END} justifyContent={JUSTIFY_CONTENT.SPACE_BETWEEN}>
                     <TextElem color="secondary" size={7}>{formatDate(bill.creationTime)}</TextElem>
