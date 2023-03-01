@@ -5,7 +5,6 @@ import {Input} from "../../common/input";
 import {ListLayout} from "../../common/list-layout";
 import {Stack} from "../../common/stack";
 import {Button} from "../../common/button";
-import {BUTTON_FILL, BUTTON_TYPE} from "../../common/button/const";
 
 interface PropTypes {
   transactionTypes: { value: string, label: string }[]
@@ -22,7 +21,7 @@ interface ProviderType {
 const Component = (props: PropTypes) => {
   return (
     <Form>
-      <ListLayout>
+      <ListLayout gap="large">
         <Select optionList={props.transactionTypes} label="BILL.FORM_LABEL.TYPE" name="transactionType"/>
         {props.values.transactionType !== "" ? (
           <Select name="provider" optionList={props.providers[props.values.transactionType]}
@@ -32,8 +31,8 @@ const Component = (props: PropTypes) => {
         <Input name="paymentAmount" label="BILL.FORM_LABEL.PAYMENT" placeholder="BILL.FORM_PLACEHOLDER.PAYMENT"/>
       </ListLayout>
       <Stack width="90" justifyContent="space-between" gap="medium">
-        <Button fill={BUTTON_FILL.OUTLINE} label="BILL.FORM_BUTTON.CANCEL"/>
-        <Button type={BUTTON_TYPE.SUBMIT} fill={BUTTON_FILL.SOLID} label="BILL.FORM_BUTTON.CREATE"/>
+        <Button fill="outline" label="BILL.FORM_BUTTON.CANCEL"/>
+        <Button type="submit" fill="solid" label="BILL.FORM_BUTTON.CREATE"/>
       </Stack>
     </Form>
   );

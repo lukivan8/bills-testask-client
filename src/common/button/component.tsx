@@ -2,14 +2,14 @@ import React from 'react';
 import {IonButton} from "@ionic/react";
 import styled from "styled-components";
 import {TextElem} from "../text-elem";
-import {BUTTON_FILL, BUTTON_TEXT_COLOR, BUTTON_TYPE} from "./const";
+import {BUTTON_FILL_ENUM, BUTTON_FILL_TYPE, BUTTON_FUNCTION_TYPE, BUTTON_TEXT_COLOR} from "./const";
 
 
 const Component: React.FC<{
   label: string
-  fill?: BUTTON_FILL
-  type?: BUTTON_TYPE
-}> = ({label, fill = BUTTON_FILL.SOLID, type}) => {
+  fill?: BUTTON_FILL_TYPE
+  type?: BUTTON_FUNCTION_TYPE
+}> = ({label, fill = BUTTON_FILL_ENUM.SOLID, type}) => {
   return (
     <Button type={type} fill={fill}>
       <TextElem weight="semi-bold" color={BUTTON_TEXT_COLOR[fill]} tid={label}/>

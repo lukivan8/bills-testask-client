@@ -2,6 +2,7 @@ import React from 'react';
 import styled from "styled-components";
 import {TextElem} from "../text-elem";
 import {Field} from "formik";
+import {useTranslation} from "react-i18next";
 
 const Component: React.FC<{
   label: string
@@ -9,9 +10,10 @@ const Component: React.FC<{
   optionList: { value: string, label: string }[]
   innerRef?: React.Ref<any>
 }> = ({label, name, optionList, innerRef}) => {
+
   return (
     <div>
-      <TextElem weight="bold" size="input" tid={label ? label : ""}/>
+      <TextElem weight="bold" tid={label ? label : ""}/>
       <Field innerRef={innerRef} name={name} as={Select}>
         <option value=""></option>
         {optionList.map(option => {

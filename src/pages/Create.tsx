@@ -20,7 +20,7 @@ const BackButton = styled(IonItem)`
 
 
 const createNewItem = async (newBill: BillData) => {
-  const response = await fetch('https://testask-bills-api.herokuapp.com/bill/create', {
+  await fetch('https://testask-bills-api.herokuapp.com/bill/create', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -30,7 +30,7 @@ const createNewItem = async (newBill: BillData) => {
 }
 
 const Create = () => {
-  const {mutate, status} = useMutation(createNewItem)
+  const {mutate} = useMutation(createNewItem)
 
   const handleSubmit = async (newBill: BillData) => {
     console.log("New Bill" + newBill)
