@@ -9,7 +9,7 @@ const Component: React.FC<{
   label: string
   fill?: BUTTON_FILL
   type?: BUTTON_TYPE
-}> = ({label, fill=BUTTON_FILL.DEFAULT, type}) => {
+}> = ({label, fill=BUTTON_FILL.SOLID, type}) => {
   return (
     <Button type={type} fill={fill}>
       <TextElem color={BUTTON_TEXT_COLOR[fill]} tid={label}/>

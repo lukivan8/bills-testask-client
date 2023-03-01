@@ -34,7 +34,7 @@ const Component = (props: PropTypes) => {
       </ListLayout>
       <Stack width="90" justifyContent={JUSTIFY_CONTENT.SPACE_BETWEEN} gap={16}>
         <Button fill={BUTTON_FILL.OUTLINE} label="BILL.FORM_BUTTON.CANCEL"/>
-        <Button type={BUTTON_TYPE.SUBMIT} label="BILL.FORM_BUTTON.CREATE"/>
+        <Button type={BUTTON_TYPE.SUBMIT} fill={BUTTON_FILL.SOLID} label="BILL.FORM_BUTTON.CREATE"/>
       </Stack>
     </Form>
   );
