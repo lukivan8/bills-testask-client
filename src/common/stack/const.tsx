@@ -1,4 +1,4 @@
-export interface StylingProps {
+export interface STYLING_PROPS {
   gap?: number;
   justifyContent?: JUSTIFY_CONTENT;
   alignItems?: ALIGN_ITEMS;

@@ -1,7 +1,7 @@
 import React from "react";
 import {FONT_WEIGHT_TYPE, TEXT_COLOR_TYPE} from "../../theme/text-style";
 
-export interface StylingProps {
+export interface STYLING_PROPS {
   size?: number;
   color?: TEXT_COLOR_TYPE,
   tid?: string,

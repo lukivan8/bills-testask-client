@@ -1,11 +1,12 @@
 import React, {ReactNode} from 'react';
 import styled from "styled-components";
-import {StylingProps} from "./const";
+import {STYLING_PROPS} from "./const";
+import {FLEXBOX_GAP_ENUM, FLEXBOX_GAP_TYPE} from "../../theme/container-style";
 
 const Component: React.FC<{
   children?: ReactNode,
-  gap?: number
-}> = ({children, gap = 16}) => {
+  gap?: FLEXBOX_GAP_TYPE
+}> = ({children, gap = FLEXBOX_GAP_ENUM.MEDIUM}) => {
   return (
     <Wrapper gap={gap}>
       {children}
@@ -17,7 +18,7 @@ const Wrapper = styled.div`
   display: grid;
   max-width: 90%;
   margin: 12px auto;
-  gap: ${({gap}: StylingProps) => gap + "px"};
+  gap: ${({gap}: STYLING_PROPS) => gap};
 `
 
 export default Component;

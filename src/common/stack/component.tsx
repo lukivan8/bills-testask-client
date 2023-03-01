@@ -1,6 +1,6 @@
 import {ReactNode} from 'react';
 import styled from "styled-components";
-import {ALIGN_ITEMS, JUSTIFY_CONTENT, StylingProps} from "./const";
+import {ALIGN_ITEMS, JUSTIFY_CONTENT, STYLING_PROPS} from "./const";
 import {FLEXBOX_GAP_ENUM, FLEXBOX_GAP_TYPE} from "../../theme/container-style";
 
 
@@ -31,10 +31,10 @@ const Stack = styled.div`
   display: flex;
   margin: 0 auto;
   flex-direction: row;
-  justify-content: ${({justifyContent}: StylingProps) => justifyContent};
-  align-items: ${({alignItems}: StylingProps) => alignItems};
-  gap: ${({gap}: StylingProps) => gap};
-  max-width: ${({width}: StylingProps) => width + "%"};
+  justify-content: ${({justifyContent}: STYLING_PROPS) => justifyContent};
+  align-items: ${({alignItems}: STYLING_PROPS) => alignItems};
+  gap: ${({gap}: STYLING_PROPS) => gap};
+  max-width: ${({width}: STYLING_PROPS) => width + "%"};
 `
 
 export default Component;

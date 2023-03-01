@@ -1,7 +1,7 @@
 import React from 'react';
 import {useTranslation} from "react-i18next";
 import styled from "styled-components";
-import {StylingProps} from "./const";
+import {STYLING_PROPS} from "./const";
 import {FONT_WEIGHT_DATA, FONT_WEIGHT_TYPE, TEXT_COLOR_ENUM, TEXT_COLOR_TYPE} from "../../theme/text-style";
 
 
@@ -20,11 +20,11 @@ const Component: React.FC<{
 };
 
 const TextStyled = styled.p`
-  color: ${({color}: StylingProps) => color};
+  color: ${({color}: STYLING_PROPS) => color};
   font-family: Manrope, sans-serif;
-  font-size: ${({size}: StylingProps) => size ? size * 2 + "px" : "16px"};
+  font-size: ${({size}: STYLING_PROPS) => size ? size * 2 + "px" : "16px"};
   margin: 0;
-  font-weight: ${({weight}: StylingProps) => weight ? FONT_WEIGHT_DATA[weight] : "normal"};
+  font-weight: ${({weight}: STYLING_PROPS) => weight ? FONT_WEIGHT_DATA[weight] : "normal"};
 `;
 
 export default Component;
