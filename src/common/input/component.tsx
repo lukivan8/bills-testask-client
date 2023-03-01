@@ -3,7 +3,6 @@ import {TextElem} from "../text-elem";
 import styled from "styled-components";
 import {useTranslation} from "react-i18next";
 import {Field} from "formik";
-import {FONT_WEIGHT_ENUM} from "../../theme/text-style";
 
 const Component: React.FC<{
   label?: string,
@@ -13,7 +12,7 @@ const Component: React.FC<{
   const {t} = useTranslation()
   return (
     <div>
-      {label && <TextElem weight={FONT_WEIGHT_ENUM.BOLD} tid={label}/>}
+      {label && <TextElem weight="bold" tid={label}/>}
       <Field placeholder={placeholder ? t(placeholder) : ""} name={name} as={Input}>
       </Field>
     </div>

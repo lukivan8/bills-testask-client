@@ -8,10 +8,17 @@ export enum TEXT_COLOR_ENUM {
 export enum FONT_WEIGHT_ENUM {
   NORMAL = "normal",
   BOLD = "bold",
-  SEMI_BOLD = "600",
-  BLACK = "900"
+  SEMI_BOLD = "semi-bold",
+  BLACK = "black"
 }
 
 
 export type TEXT_COLOR_TYPE = `${TEXT_COLOR_ENUM}`
 export type FONT_WEIGHT_TYPE = `${FONT_WEIGHT_ENUM}`
+
+export const FONT_WEIGHT_DATA = {
+  [FONT_WEIGHT_ENUM.NORMAL]:500,
+  [FONT_WEIGHT_ENUM.BOLD]:700,
+  [FONT_WEIGHT_ENUM.SEMI_BOLD]:600,
+  [FONT_WEIGHT_ENUM.BLACK]:900
+}

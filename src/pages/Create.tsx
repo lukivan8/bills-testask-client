@@ -12,7 +12,7 @@ import {BillData} from "./Home";
 import {BillForm} from "../epic/bill-create-form";
 import {StyledIonPage} from "../theme/global.styled";
 import {SLOT} from "../common/item-wrapper/const";
-import {FONT_WEIGHT_ENUM, TEXT_COLOR_ENUM} from "../theme/text-style";
+import {TEXT_COLOR_ENUM} from "../theme/text-style";
 
 const BackButton = styled(IonItem)`
   --ion-item-background: #2C2C2C;
@@ -48,7 +48,7 @@ const Create = () => {
           </IonRouterLink>
         </BackButton>
         <ItemWrapper slot={SLOT.DEFAULT}>
-          <TextElem color={TEXT_COLOR_ENUM.PRIMARY} weight={FONT_WEIGHT_ENUM.BOLD} size={9} tid="BILL.HEADER.CREATE"/>
+          <TextElem color={TEXT_COLOR_ENUM.PRIMARY} weight="bold" size={9} tid="BILL.HEADER.CREATE"/>
         </ItemWrapper>
       </Toolbar>
       <IonContent>

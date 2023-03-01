@@ -12,7 +12,7 @@ import React from "react";
 import {StyledIonPage} from "../theme/global.styled";
 import {SLOT} from "../common/item-wrapper/const";
 import {ALIGN_ITEMS, JUSTIFY_CONTENT} from "../common/stack/const";
-import {FONT_WEIGHT_ENUM, TEXT_COLOR_ENUM} from "../theme/text-style";
+import {TEXT_COLOR_ENUM} from "../theme/text-style";
 import Moment from "react-moment";
 
 
@@ -38,7 +38,7 @@ const Home = () => {
       <StyledIonPage>
         <Toolbar>
           <ItemWrapper slot={SLOT.START}>
-            <TextElem size={9} weight={FONT_WEIGHT_ENUM.BOLD} color={TEXT_COLOR_ENUM.PRIMARY} tid="BILL.HEADER.HISTORY"/>
+            <TextElem size={9} weight="bold" color={TEXT_COLOR_ENUM.PRIMARY} tid="BILL.HEADER.HISTORY"/>
           </ItemWrapper>
           <ItemWrapper slot={SLOT.END}>
             <IonRouterLink href="/create">
