@@ -1,8 +1,7 @@
-import {Redirect, Route} from 'react-router-dom';
+import {Route} from 'react-router-dom';
 import {IonApp, IonRouterOutlet, setupIonicReact} from '@ionic/react';
 import {IonReactRouter} from '@ionic/react-router';
-import Home from './pages/Home';
-import Create from "./pages/Create";
+import routes from "./pages/routes";
 
 /* Core CSS required for Ionic component.tsx to work properly */
 import '@ionic/react/css/core.css';
@@ -36,15 +35,14 @@ const App: React.FC = () => (
   <StyledIonApp>
     <IonReactRouter>
       <IonRouterOutlet>
-        <Route exact path="/home">
-          <Home/>
-        </Route>
-        <Route exact path="/">
-          <Redirect to="/home"/>
-        </Route>
-        <Route exact path="/create">
-          <Create/>
-        </Route>
+        {routes.map((route, index) => (
+          <Route
+            key={index}
+            path={route.path}
+            exact={route.exact}
+            component={route.component}
+          />
+        ))}
       </IonRouterOutlet>
     </IonReactRouter>
   </StyledIonApp>
