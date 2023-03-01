@@ -2,6 +2,7 @@ import React from 'react';
 import styled from "styled-components";
 import {TextElem} from "../text-elem";
 import {Field} from "formik";
+import {FONT_WEIGHT_ENUM} from "../../theme/text-style";
 
 const Component: React.FC<{
   label: string
@@ -11,7 +12,7 @@ const Component: React.FC<{
 }> = ({label, name, optionList, innerRef}) => {
   return (
     <div>
-      <TextElem weight="bold" size={8} tid={label ? label : ""}/>
+      <TextElem weight={FONT_WEIGHT_ENUM.BOLD} size={8} tid={label ? label : ""}/>
       <Field innerRef={innerRef} name={name} as={Select}>
         <option value=""></option>
         {optionList.map(option => {

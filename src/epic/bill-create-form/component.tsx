@@ -7,6 +7,7 @@ import {Stack} from "../../common/stack";
 import {Button} from "../../common/button";
 import {BUTTON_FILL, BUTTON_TYPE} from "../../common/button/const";
 import {JUSTIFY_CONTENT} from "../../common/stack/const";
+import {FLEXBOX_GAP_ENUM} from "../../theme/container-style";
 
 interface PropTypes {
   transactionTypes: { value: string, label: string }[]
@@ -32,7 +33,7 @@ const Component = (props: PropTypes) => {
         <Input name="privateAccount" label="BILL.FORM_LABEL.ACCOUNT" placeholder="BILL.FORM_PLACEHOLDER.ACCOUNT"/>
         <Input name="paymentAmount" label="BILL.FORM_LABEL.PAYMENT" placeholder="BILL.FORM_PLACEHOLDER.PAYMENT"/>
       </ListLayout>
-      <Stack width="90" justifyContent={JUSTIFY_CONTENT.SPACE_BETWEEN} gap={16}>
+      <Stack width="90" justifyContent={JUSTIFY_CONTENT.SPACE_BETWEEN} gap={FLEXBOX_GAP_ENUM.MEDIUM}>
         <Button fill={BUTTON_FILL.OUTLINE} label="BILL.FORM_BUTTON.CANCEL"/>
         <Button type={BUTTON_TYPE.SUBMIT} fill={BUTTON_FILL.SOLID} label="BILL.FORM_BUTTON.CREATE"/>
       </Stack>

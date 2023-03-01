@@ -5,7 +5,7 @@ const Component: React.FC<{
   src: any;
   width?: number;
   height?: number;
-  alt?:string;
+  alt?: string;
 }> = ({src, width, height, alt}) => {
   return (
     <img src={src} alt={alt} width={width} height={height}/>

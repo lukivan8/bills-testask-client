@@ -3,7 +3,7 @@ import styled from "styled-components";
 import {IonToolbar} from "@ionic/react";
 
 
-const Component:React.FC<{children:ReactNode}> = ({children}) => {
+const Component: React.FC<{ children: ReactNode }> = ({children}) => {
   return (
     <Container>
       {children}

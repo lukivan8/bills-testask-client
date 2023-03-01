@@ -1,3 +1,3 @@
 export interface StylingProps {
-  gap?:number
+  gap?: number
 }

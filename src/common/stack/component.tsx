@@ -1,15 +1,22 @@
 import {ReactNode} from 'react';
 import styled from "styled-components";
 import {ALIGN_ITEMS, JUSTIFY_CONTENT, StylingProps} from "./const";
+import {FLEXBOX_GAP_ENUM, FLEXBOX_GAP_TYPE} from "../../theme/container-style";
 
 
 const Component: React.FC<{
   children?: ReactNode;
-  gap?: number;
+  gap?: FLEXBOX_GAP_TYPE;
   justifyContent?: JUSTIFY_CONTENT;
   alignItems?: ALIGN_ITEMS;
   width?: string;
-}> = ({children, gap, justifyContent = JUSTIFY_CONTENT.CENTER, alignItems = ALIGN_ITEMS.CENTER, width}) => {
+}> = ({
+        children,
+        gap = FLEXBOX_GAP_ENUM.NONE,
+        justifyContent = JUSTIFY_CONTENT.CENTER,
+        alignItems = ALIGN_ITEMS.CENTER,
+        width
+      }) => {
   return (
     <Stack gap={gap}
            justifyContent={justifyContent}
@@ -26,7 +33,7 @@ const Stack = styled.div`
   flex-direction: row;
   justify-content: ${({justifyContent}: StylingProps) => justifyContent};
   align-items: ${({alignItems}: StylingProps) => alignItems};
-  gap: ${({gap}: StylingProps) => gap + "px"};
+  gap: ${({gap}: StylingProps) => gap};
   max-width: ${({width}: StylingProps) => width + "%"};
 `
 

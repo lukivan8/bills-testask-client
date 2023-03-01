@@ -5,7 +5,7 @@ import {StylingProps} from "./const";
 const Component: React.FC<{
   children?: ReactNode,
   gap?: number
-}> = ({children, gap=16}) => {
+}> = ({children, gap = 16}) => {
   return (
     <Wrapper gap={gap}>
       {children}
@@ -17,7 +17,7 @@ const Wrapper = styled.div`
   display: grid;
   max-width: 90%;
   margin: 12px auto;
-  gap: ${({gap}:StylingProps) => gap + "px"};
+  gap: ${({gap}: StylingProps) => gap + "px"};
 `
 
 export default Component;
