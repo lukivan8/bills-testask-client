@@ -1,13 +1,12 @@
-import React, {ReactNode} from 'react';
+import React, { ReactNode } from "react";
 import styled from "styled-components";
-import {IonItem} from "@ionic/react";
-import {SLOT_TYPE} from "./const";
-
+import { IonItem } from "@ionic/react";
+import { SLOT_TYPE } from "./const";
 
 const Component: React.FC<{
   slot?: SLOT_TYPE;
   children: ReactNode;
-}> = ({slot, children}) => {
+}> = ({ slot, children }) => {
   return (
     <Item slot={slot} lines="none">
       {children}
@@ -20,6 +19,6 @@ const Item = styled(IonItem)`
   --background: none;
   --padding-start: 5px;
   --ion-safe-area-left: 5px;
-`
+`;
 
 export default Component;

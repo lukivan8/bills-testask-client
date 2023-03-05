@@ -1,22 +1,25 @@
-import React from 'react';
-import {TextElem} from "../text-elem";
+import React from "react";
+import { TextElem } from "../text-elem";
 import styled from "styled-components";
-import {useTranslation} from "react-i18next";
-import {Field} from "formik";
+import { useTranslation } from "react-i18next";
+import { Field } from "formik";
 
 const Component: React.FC<{
-  label?: string,
-  placeholder?: string
-  name: string
-}> = ({label, placeholder, name}) => {
-  const {t} = useTranslation()
+  label?: string;
+  placeholder?: string;
+  name: string;
+}> = ({ label, placeholder, name }) => {
+  const { t } = useTranslation();
   return (
     <div>
-      {label && <TextElem weight="bold" tid={label}/>}
-      <Field placeholder={placeholder ? t(placeholder) : ""} name={name} as={Input}>
-      </Field>
+      {label && <TextElem weight="bold" tid={label} />}
+      <Field
+        placeholder={placeholder ? t(placeholder) : ""}
+        name={name}
+        as={Input}
+      ></Field>
     </div>
-  )
+  );
 };
 
 const Input = styled.input`
@@ -30,6 +33,6 @@ const Input = styled.input`
   width: 100%;
   box-shadow: none;
   border: none;
-`
+`;
 
 export default Component;

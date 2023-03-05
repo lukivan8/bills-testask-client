@@ -1,24 +1,32 @@
-import React from 'react';
-import {IonButton} from "@ionic/react";
+import React from "react";
+import { IonButton } from "@ionic/react";
 import styled from "styled-components";
-import {TextElem} from "../text-elem";
-import {BUTTON_FILL_ENUM, BUTTON_FILL_TYPE, BUTTON_FUNCTION_TYPE, BUTTON_TEXT_COLOR} from "./const";
-
+import { TextElem } from "../text-elem";
+import {
+  BUTTON_FILL_ENUM,
+  BUTTON_FILL_TYPE,
+  BUTTON_FUNCTION_TYPE,
+  BUTTON_TEXT_COLOR,
+} from "./const";
 
 const Component: React.FC<{
-  label: string
-  fill?: BUTTON_FILL_TYPE
-  type?: BUTTON_FUNCTION_TYPE
-}> = ({label, fill = BUTTON_FILL_ENUM.SOLID, type}) => {
+  label: string;
+  fill?: BUTTON_FILL_TYPE;
+  type?: BUTTON_FUNCTION_TYPE;
+}> = ({ label, fill = BUTTON_FILL_ENUM.SOLID, type }) => {
   return (
     <Button type={type} fill={fill}>
-      <TextElem weight="semi-bold" color={BUTTON_TEXT_COLOR[fill]} tid={label}/>
+      <TextElem
+        weight="semi-bold"
+        color={BUTTON_TEXT_COLOR[fill]}
+        tid={label}
+      />
     </Button>
   );
 };
 
 const Button = styled(IonButton)`
   width: 100%;
-`
+`;
 
 export default Component;

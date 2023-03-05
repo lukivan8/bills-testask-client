@@ -1,3 +1,3 @@
 import Component from "./component";
 
-export {Component as Select}
+export { Component as Select };

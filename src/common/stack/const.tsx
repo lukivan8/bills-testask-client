@@ -1,4 +1,4 @@
-import {FLEXBOX_GAP_TYPE} from "../../theme/container-style";
+import { FLEXBOX_GAP_TYPE } from "../../theme/container-style";
 
 export interface STYLING_PROPS {
   gap: FLEXBOX_GAP_TYPE;
@@ -14,7 +14,7 @@ export enum JUSTIFY_CONTENT_ENUM {
   SPACE_BETWEEN = "space-between",
   SPACE_AROUND = "space-around",
   SPACE_EVENLY = "space-evenly",
-  UNSET = "unset"
+  UNSET = "unset",
 }
 
 export enum ALIGN_ITEMS_ENUM {
@@ -25,6 +25,5 @@ export enum ALIGN_ITEMS_ENUM {
   BASELINE = "baseline",
 }
 
-
-export type JUSTIFY_CONTENT_TYPE = `${JUSTIFY_CONTENT_ENUM}`
-export type ALIGN_ITEMS_TYPE = `${ALIGN_ITEMS_ENUM}`
+export type JUSTIFY_CONTENT_TYPE = `${JUSTIFY_CONTENT_ENUM}`;
+export type ALIGN_ITEMS_TYPE = `${ALIGN_ITEMS_ENUM}`;

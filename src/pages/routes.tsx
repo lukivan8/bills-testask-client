@@ -1,22 +1,22 @@
 import Home from "./Home";
 import Create from "./Create";
 
-const routes =[
+const routes = [
   {
-    path: '/',
+    path: "/",
     component: Home,
-    exact: true
+    exact: true,
   },
   {
-    path: '/home',
+    path: "/home",
     component: Home,
-    exact: true
+    exact: true,
   },
   {
-    path: '/create',
+    path: "/create",
     component: Create,
-    exact: true
+    exact: true,
   },
-]
+];
 
 export default routes

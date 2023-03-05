@@ -1,3 +1,3 @@
 import Component from "./component";
 
-export {Component as Card}
+export { Component as Card };
