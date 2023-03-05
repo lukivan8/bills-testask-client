@@ -1,4 +1,4 @@
-import { TEXT_COLOR_ENUM } from "../../theme/text-style";
+import { TEXT_COLOR_ENUM } from "../../theme/color";
 
 export enum BUTTON_FILL_ENUM {
   CLEAR = "clear",

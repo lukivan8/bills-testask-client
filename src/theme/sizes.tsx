@@ -1,17 +1,21 @@
-export enum TEXT_COLOR_ENUM {
-  PRIMARY = "primary",
-  SECONDARY = "secondary",
-  BUTTON_OUTLINE = "button-outline",
-  BUTTON_SOLID = "button-solid",
+export enum FLEXBOX_GAP_ENUM {
+  NONE = "none",
+  XS = "xs",
+  SMALL = "small",
+  MEDIUM = "medium",
+  LARGE = "large",
+  XL = "xl",
 }
 
-export type TEXT_COLOR_TYPE = `${TEXT_COLOR_ENUM}`;
+export type FLEXBOX_GAP_TYPE = `${FLEXBOX_GAP_ENUM}`;
 
-export const TEXT_COLOR_DATA = {
-  [TEXT_COLOR_ENUM.PRIMARY]: "#000000",
-  [TEXT_COLOR_ENUM.SECONDARY]: "#737373",
-  [TEXT_COLOR_ENUM.BUTTON_OUTLINE]: "#387ABB",
-  [TEXT_COLOR_ENUM.BUTTON_SOLID]: "#FFFFFF",
+export const FLEXBOX_GAP_DATA = {
+  [FLEXBOX_GAP_ENUM.NONE]: "0px",
+  [FLEXBOX_GAP_ENUM.XS]: "4px",
+  [FLEXBOX_GAP_ENUM.SMALL]: "8px",
+  [FLEXBOX_GAP_ENUM.MEDIUM]: "16px",
+  [FLEXBOX_GAP_ENUM.LARGE]: "24px",
+  [FLEXBOX_GAP_ENUM.XL]: "32px",
 };
 
 export enum FONT_WEIGHT_ENUM {
@@ -22,6 +26,7 @@ export enum FONT_WEIGHT_ENUM {
 }
 
 export type FONT_WEIGHT_TYPE = `${FONT_WEIGHT_ENUM}`;
+
 export const FONT_WEIGHT_DATA = {
   [FONT_WEIGHT_ENUM.NORMAL]: 500,
   [FONT_WEIGHT_ENUM.BOLD]: 700,
