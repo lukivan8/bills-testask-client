@@ -15,6 +15,7 @@ import {
   FONT_WEIGHT_ENUM,
   FONT_WEIGHT_TYPE,
 } from "../../theme/sizes";
+import { STYLING_PROPS } from "./const";
 
 const Component: React.FC<{
   size?: FONT_SIZE_TYPE;
@@ -38,11 +39,11 @@ const Component: React.FC<{
 };
 
 const TextStyled = styled.p`
-  color: ${(color: TEXT_COLOR_TYPE) => TEXT_COLOR_DATA[color]};
+  color: ${({ color }: STYLING_PROPS) => TEXT_COLOR_DATA[color]};
   font-family: Manrope, sans-serif;
-  font-size: ${(size: FONT_SIZE_TYPE) => FONT_SIZE_DATA[size]};
+  font-size: ${({ size }: STYLING_PROPS) => FONT_SIZE_DATA[size]};
   margin: 0;
-  font-weight: ${(weight: FONT_WEIGHT_TYPE) => FONT_WEIGHT_DATA[weight]};
+  font-weight: ${({ weight }: STYLING_PROPS) => FONT_WEIGHT_DATA[weight]};
 `;
 
 export default Component;

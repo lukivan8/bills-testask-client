@@ -5,6 +5,7 @@ import {
   FLEXBOX_GAP_ENUM,
   FLEXBOX_GAP_TYPE,
 } from "../../theme/sizes";
+import { STYLING_PROPS } from "./const";
 
 const Component: React.FC<{
   children?: ReactNode;
@@ -35,10 +36,10 @@ const Stack = styled.div`
   display: flex;
   margin: 0 auto;
   flex-direction: row;
-  justify-content: ${(justifyContent : string) => justifyContent};
-  align-items: ${(alignItems : string) => alignItems};
-  gap: ${(gap : FLEXBOX_GAP_TYPE) => FLEXBOX_GAP_DATA[gap]};
-  max-width: ${(width : string) => width + "%"};
+  justify-content: ${({ justifyContent }: STYLING_PROPS) => justifyContent};
+  align-items: ${({ alignItems }: STYLING_PROPS) => alignItems};
+  gap: ${({ gap }: STYLING_PROPS) => FLEXBOX_GAP_DATA[gap]};
+  max-width: ${({ width }: STYLING_PROPS) => width + "%"};
 `;
 
 export default Component;

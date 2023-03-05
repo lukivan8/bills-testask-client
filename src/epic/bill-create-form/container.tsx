@@ -15,10 +15,11 @@ const Container = () => {
     await mutate(newBill);
   };
 
-  const onSubmit = (values: any, { setSubmitting }: any) => {
+  const onSubmit = (values: any, { setSubmitting, resetForm }: any) => {
     handleSubmit(values);
     console.log(values);
     setSubmitting(false);
+    resetForm();
   };
 
   const validate = (values: FormikValues) => {

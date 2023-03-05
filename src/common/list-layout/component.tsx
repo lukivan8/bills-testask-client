@@ -5,6 +5,7 @@ import {
   FLEXBOX_GAP_ENUM,
   FLEXBOX_GAP_TYPE,
 } from "../../theme/sizes";
+import {STYLING_PROPS} from "./const";
 
 const Component: React.FC<{
   children?: ReactNode;
@@ -17,7 +18,7 @@ const Wrapper = styled.div`
   display: grid;
   max-width: 90%;
   margin: 12px auto;
-  gap: ${(gap: FLEXBOX_GAP_TYPE) => FLEXBOX_GAP_DATA[gap]};
+  gap: ${({ gap }: STYLING_PROPS) => FLEXBOX_GAP_DATA[gap]};
 `;
 
 export default Component;
