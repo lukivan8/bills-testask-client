@@ -1,5 +1,5 @@
-import Home from "./Home";
-import Create from "./Create";
+import Home from "./bill/Home";
+import Create from "./bill/Create";
 
 const routes = [
   {

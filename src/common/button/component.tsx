@@ -13,9 +13,10 @@ const Component: React.FC<{
   label: string;
   fill?: BUTTON_FILL_TYPE;
   type?: BUTTON_FUNCTION_TYPE;
-}> = ({ label, fill = BUTTON_FILL_ENUM.SOLID, type }) => {
+  disabled?: boolean;
+}> = ({ label, fill = BUTTON_FILL_ENUM.SOLID, type, disabled }) => {
   return (
-    <Button type={type} fill={fill}>
+    <Button disabled={disabled} type={type} fill={fill}>
       <TextElem
         weight="semi-bold"
         color={BUTTON_TEXT_COLOR[fill]}

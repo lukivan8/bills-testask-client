@@ -8,12 +8,14 @@ const Component: React.FC<{
   label?: string;
   placeholder?: string;
   name: string;
-}> = ({ label, placeholder, name }) => {
+  type?: string;
+}> = ({ label, placeholder, name, type }) => {
   const { t } = useTranslation();
   return (
     <div>
       {label && <TextElem weight="bold" tid={label} />}
       <Field
+        type={type}
         placeholder={placeholder ? t(placeholder) : ""}
         name={name}
         as={Input}
@@ -33,6 +35,14 @@ const Input = styled.input`
   width: 100%;
   box-shadow: none;
   border: none;
+
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  -moz-appearance: textfield;
 `;
 
 export default Component;

@@ -2,8 +2,17 @@
 
 import i18n from "../../lib/i18next";
 
+export const API_URL = "http://localhost:8080/bill/create";
+
+export const PAYMENT_TYPES = [
+  {value: "internet", label: `${i18n.t("BILL.SERVICE_LABEL.INTERNET")}`},
+  {value: "commun", label: `${i18n.t("BILL.SERVICE_LABEL.COMMUNAL")}`},
+  {value: "education", label: `${i18n.t("BILL.SERVICE_LABEL.EDUCATION")}`}
+];
+
+
 export const PAYMENT_PROVIDERS = {
-  internet: [
+  [PAYMENT_TYPES[0].value]: [
     {
       value: "fregat-tv",
       label: `${i18n.t("BILL.PROVIDER_LABEL.INTERNET.FREGAT")}`,
@@ -17,7 +26,7 @@ export const PAYMENT_PROVIDERS = {
       label: `${i18n.t("BILL.PROVIDER_LABEL.INTERNET.UKRTELEKOM")}`,
     },
   ],
-  commun: [
+  [PAYMENT_TYPES[1].value]: [
     {
       value: "comprov1",
       label: `${i18n.t("BILL.PROVIDER_LABEL.COMMUNAL.COMPROV_1")}`,
@@ -31,7 +40,7 @@ export const PAYMENT_PROVIDERS = {
       label: `${i18n.t("BILL.PROVIDER_LABEL.COMMUNAL.COMPROV_3")}`,
     },
   ],
-  education: [
+  [PAYMENT_TYPES[2].value]: [
     {
       value: "eduprov1",
       label: `${i18n.t("BILL.PROVIDER_LABEL.EDUCATION.EDUPROV_1")}`,
@@ -47,9 +56,17 @@ export const PAYMENT_PROVIDERS = {
   ],
 };
 
+export const initialValues = {
+  transactionType: "",
+  provider: "",
+  privateAccount: "",
+  paymentAmount: "",
+};
 
-export const PAYMENT_TYPES = [
-  {value: "internet", label: `${i18n.t("BILL.SERVICE_LABEL.INTERNET")}`},
-  {value: "commun", label: `${i18n.t("BILL.SERVICE_LABEL.COMMUNAL")}`},
-  {value: "education", label: `${i18n.t("BILL.SERVICE_LABEL.EDUCATION")}`}
-];
+export interface FormValues {
+  transactionType: string;
+  provider: string;
+  privateAccount: number | "";
+  paymentAmount: number | "";
+}
+

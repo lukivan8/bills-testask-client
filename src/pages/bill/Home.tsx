@@ -1,33 +1,21 @@
 import { IonContent, IonRouterLink } from "@ionic/react";
-import { TextElem } from "../common/text-elem";
-import { ImageElem } from "../common/image-elem";
-import NoteIcon from "../assets/svg/note-text.svg";
-import { Toolbar } from "../common/layout-toolbar";
-import { ItemWrapper } from "../common/item-wrapper";
-import { Card } from "../common/card";
-import { Stack } from "../common/stack";
-import { ListLayout } from "../common/list-layout";
+import { TextElem } from "../../common/text-elem";
+import { ImageElem } from "../../common/image-elem";
+import NoteIcon from "../../assets/svg/note-text.svg";
+import { Toolbar } from "../../common/layout-toolbar";
+import { ItemWrapper } from "../../common/item-wrapper";
+import { Card } from "../../common/card";
+import { Stack } from "../../common/stack";
+import { ListLayout } from "../../common/list-layout";
 import { useQuery } from "react-query";
 import React from "react";
-import { StyledIonPage } from "../theme/global.styled";
+import { StyledIonPage } from "../../theme/global.styled";
 import Moment from "react-moment";
-
-export interface BillData {
-  billId: number;
-  transactionType: string;
-  provider: string;
-  privateAccount: number;
-  paymentAmount: number;
-  creationTime: string;
-}
+import { BILL_ENTITY } from "./const";
+import { action } from "./action";
 
 const Home = () => {
-  const { data, isLoading } = useQuery("bills", async () => {
-    const data = await fetch("http://localhost:3000/bill/list");
-    const result = await data.json();
-    console.log(result);
-    return result;
-  });
+  const { data, isLoading } = useQuery("bills", action);
 
   return (
     <StyledIonPage>
@@ -51,7 +39,7 @@ const Home = () => {
           {isLoading ? (
             <TextElem size="focus">Loading...</TextElem>
           ) : (
-            data.map((bill: BillData) => {
+            data.map((bill: BILL_ENTITY) => {
               return (
                 <Card key={bill.billId}>
                   <Stack alignItems="flex-start" justifyContent="unset">
@@ -79,6 +67,6 @@ const Home = () => {
     </StyledIonPage>
   );
 };
-;
+
 
 export default Home;

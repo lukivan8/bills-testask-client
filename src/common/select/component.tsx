@@ -7,12 +7,11 @@ const Component: React.FC<{
   label: string;
   name: string;
   optionList: { value: string; label: string }[];
-  innerRef?: React.Ref<any>;
-}> = ({ label, name, optionList, innerRef }) => {
+}> = ({ label, name, optionList }) => {
   return (
     <div>
       <TextElem weight="bold" tid={label ? label : ""} />
-      <Field innerRef={innerRef} name={name} as={Select}>
+      <Field name={name} as={Select}>
         <option value=""></option>
         {optionList.map((option) => {
           return (
