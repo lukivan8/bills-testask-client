@@ -1,5 +1,6 @@
-import styled from "styled-components";
 import { IonPage } from "@ionic/react";
+import styled from "styled-components";
+import React from "react";
 
 export const StyledIonPage = styled(IonPage)`
   max-width: 450px;

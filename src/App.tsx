@@ -25,10 +25,9 @@ import styled from "styled-components";
 
 setupIonicReact();
 
-const StyledIonApp = styled(IonApp)``;
 
 const App: React.FC = () => (
-  <StyledIonApp>
+  <IonApp>
     <IonReactRouter>
       <IonRouterOutlet>
         {routes.map((route, index) => (
@@ -41,7 +40,7 @@ const App: React.FC = () => (
         ))}
       </IonRouterOutlet>
     </IonReactRouter>
-  </StyledIonApp>
+  </IonApp>
 );
 
 export default App;

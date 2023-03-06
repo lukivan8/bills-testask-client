@@ -1,11 +1,10 @@
 import { ReactNode } from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import {
   FLEXBOX_GAP_DATA,
   FLEXBOX_GAP_ENUM,
   FLEXBOX_GAP_TYPE,
 } from "../../theme/sizes";
-import { STYLING_PROPS } from "./const";
 
 const Component: React.FC<{
   children?: ReactNode;
@@ -32,14 +31,23 @@ const Component: React.FC<{
   );
 };
 
-const Stack = styled.div`
-  display: flex;
-  margin: 0 auto;
-  flex-direction: row;
-  justify-content: ${({ justifyContent }: STYLING_PROPS) => justifyContent};
-  align-items: ${({ alignItems }: STYLING_PROPS) => alignItems};
-  gap: ${({ gap }: STYLING_PROPS) => FLEXBOX_GAP_DATA[gap]};
-  max-width: ${({ width }: STYLING_PROPS) => width + "%"};
+const Stack = styled.div<{
+  width: string;
+  gap: FLEXBOX_GAP_TYPE;
+  justifyContent: string;
+  alignItems: string;
+}>`
+  ${({ width, justifyContent, alignItems, gap }) => {
+    return css`
+      display: flex;
+      margin: 0 auto;
+      flex-direction: row;
+      max-width: ${width};
+      justify-content: ${justifyContent};
+      align-items: ${alignItems};
+      gap: ${FLEXBOX_GAP_DATA[gap]};
+    `;
+  }}
 `;
 
 export default Component;

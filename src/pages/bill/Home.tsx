@@ -1,4 +1,4 @@
-import { IonContent, IonRouterLink } from "@ionic/react";
+import {IonContent, IonPage, IonRouterLink} from "@ionic/react";
 import { TextElem } from "../../common/text-elem";
 import { ImageElem } from "../../common/image-elem";
 import NoteIcon from "../../assets/svg/note-text.svg";
@@ -9,10 +9,10 @@ import { Stack } from "../../common/stack";
 import { ListLayout } from "../../common/list-layout";
 import { useQuery } from "react-query";
 import React from "react";
-import { StyledIonPage } from "../../theme/global.styled";
 import Moment from "react-moment";
 import { BILL_ENTITY } from "./const";
 import { action } from "./action";
+import {StyledIonPage} from "../../theme/global.styled";
 
 const Home = () => {
   const { data, isLoading } = useQuery("bills", action);
