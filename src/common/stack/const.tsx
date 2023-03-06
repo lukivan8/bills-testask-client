@@ -1,30 +1,38 @@
-import {FLEXBOX_GAP_TYPE} from "../../theme/container-style";
-
-export interface STYLING_PROPS {
-  gap: FLEXBOX_GAP_TYPE;
-  justifyContent: JUSTIFY_CONTENT_TYPE;
-  alignItems: ALIGN_ITEMS_TYPE;
-  width: string;
-}
-
 export enum JUSTIFY_CONTENT_ENUM {
-  FLEX_START = "flex-start",
-  FLEX_END = "flex-end",
+  FLEX_START = "flexStart",
+  FLEX_END = "flexEnd",
   CENTER = "center",
-  SPACE_BETWEEN = "space-between",
-  SPACE_AROUND = "space-around",
-  SPACE_EVENLY = "space-evenly",
-  UNSET = "unset"
+  SPACE_BETWEEN = "spaceBetween",
+  SPACE_AROUND = "spaceAround",
+  SPACE_EVENLY = "spaceEvenly",
+  UNSET = "unset",
 }
+
+export const JUSTIFY_CONTENT_DATA = {
+  [JUSTIFY_CONTENT_ENUM.FLEX_START]: "flex-start",
+  [JUSTIFY_CONTENT_ENUM.FLEX_END]: "flex-end",
+  [JUSTIFY_CONTENT_ENUM.CENTER]: "center",
+  [JUSTIFY_CONTENT_ENUM.SPACE_BETWEEN]: "space-between",
+  [JUSTIFY_CONTENT_ENUM.SPACE_AROUND]: "space-around",
+  [JUSTIFY_CONTENT_ENUM.SPACE_EVENLY]: "space-evenly",
+  [JUSTIFY_CONTENT_ENUM.UNSET]: "unset",
+};
 
 export enum ALIGN_ITEMS_ENUM {
   STRETCH = "stretch",
-  FLEX_START = "flex-start",
-  FLEX_END = "flex-end",
+  FLEX_START = "flexStart",
+  FLEX_END = "flexEnd",
   CENTER = "center",
   BASELINE = "baseline",
 }
 
+export const ALIGN_ITEMS_DATA = {
+  [ALIGN_ITEMS_ENUM.FLEX_START]: "flex-start",
+  [ALIGN_ITEMS_ENUM.FLEX_END]: "flex-end",
+  [ALIGN_ITEMS_ENUM.CENTER]: "center",
+  [ALIGN_ITEMS_ENUM.STRETCH]: "stretch",
+  [ALIGN_ITEMS_ENUM.BASELINE]: "baseline",
+};
 
-export type JUSTIFY_CONTENT_TYPE = `${JUSTIFY_CONTENT_ENUM}`
-export type ALIGN_ITEMS_TYPE = `${ALIGN_ITEMS_ENUM}`
+export type JUSTIFY_CONTENT_TYPE = `${JUSTIFY_CONTENT_ENUM}`;
+export type ALIGN_ITEMS_TYPE = `${ALIGN_ITEMS_ENUM}`;
