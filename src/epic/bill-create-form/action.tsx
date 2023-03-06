@@ -1,4 +1,4 @@
-import { BILL_ENTITY } from "../../pages/bill/const";
+import { BILL_ENTITY } from "../../data/bill/const";
 import { API_URL } from "./const";
 
 export const action = async (entity: BILL_ENTITY) => {

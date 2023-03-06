@@ -1,21 +1,21 @@
-import {IonContent, IonPage, IonRouterLink} from "@ionic/react";
-import { TextElem } from "../../common/text-elem";
-import { ImageElem } from "../../common/image-elem";
-import NoteIcon from "../../assets/svg/note-text.svg";
-import { Toolbar } from "../../common/layout-toolbar";
-import { ItemWrapper } from "../../common/item-wrapper";
-import { Card } from "../../common/card";
-import { Stack } from "../../common/stack";
-import { ListLayout } from "../../common/list-layout";
+import { IonContent, IonRouterLink } from "@ionic/react";
+import { TextElem } from "../common/text-elem";
+import { ImageElem } from "../common/image-elem";
+import NoteIcon from "../assets/svg/note-text.svg";
+import { Toolbar } from "../common/layout-toolbar";
+import { ItemWrapper } from "../common/item-wrapper";
+import { Card } from "../common/card";
+import { Stack } from "../common/stack";
+import { ListLayout } from "../common/list-layout";
 import { useQuery } from "react-query";
 import React from "react";
 import Moment from "react-moment";
-import { BILL_ENTITY } from "./const";
-import { action } from "./action";
-import {StyledIonPage} from "../../theme/global.styled";
+import { BILL_ENTITY } from "../data/bill/const";
+import { StyledIonPage } from "../theme/global.styled";
+import { fetchBillData } from "../data/bill/action";
 
 const Home = () => {
-  const { data, isLoading } = useQuery("bills", action);
+  const { data, isLoading } = useQuery("bills", fetchBillData);
 
   return (
     <StyledIonPage>

@@ -4,7 +4,7 @@ import { FormikValues } from "formik";
 import { FormValues } from "./const";
 import { FormikErrors } from "formik/dist/types";
 import { useMutation } from "react-query";
-import { BILL_ENTITY } from "../../pages/bill/const";
+import { BILL_ENTITY } from "../../data/bill/const";
 import { action } from "./action";
 
 const Container = () => {
