@@ -7,7 +7,6 @@ import { Stack } from "../../common/stack";
 import { Button } from "../../common/button";
 import { initialValues, PAYMENT_PROVIDERS, PAYMENT_TYPES } from "./const";
 import { FormikErrors } from "formik/dist/types";
-import { IonRouterLink } from "@ionic/react";
 
 const Component: React.FC<{
   handleSubmit: (
@@ -58,14 +57,13 @@ const Component: React.FC<{
               placeholder="BILL.FORM_PLACEHOLDER.PAYMENT"
             />
           </ListLayout>
-          <Stack width="90" justifyContent="space-between" gap="medium">
-            <IonRouterLink href="/">
-              <Button
-                type="button"
-                fill="outline"
-                label="BILL.FORM_BUTTON.CANCEL"
-              />
-            </IonRouterLink>
+          <Stack width="90%" justifyContent="space-between" gap="medium">
+            <Button
+              type="button"
+              fill="outline"
+              label="BILL.FORM_BUTTON.CANCEL"
+              href="/"
+            />
             <Button
               disabled={!isValid}
               type="submit"
