@@ -1,6 +1,6 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import {
   TEXT_COLOR_DATA,
   TEXT_COLOR_ENUM,
@@ -15,7 +15,6 @@ import {
   FONT_WEIGHT_ENUM,
   FONT_WEIGHT_TYPE,
 } from "../../theme/sizes";
-import { STYLING_PROPS } from "./const";
 
 const Component: React.FC<{
   size?: FONT_SIZE_TYPE;
@@ -38,12 +37,20 @@ const Component: React.FC<{
   );
 };
 
-const TextStyled = styled.p`
-  color: ${({ color }: STYLING_PROPS) => TEXT_COLOR_DATA[color]};
-  font-family: Manrope, sans-serif;
-  font-size: ${({ size }: STYLING_PROPS) => FONT_SIZE_DATA[size]};
-  margin: 0;
-  font-weight: ${({ weight }: STYLING_PROPS) => FONT_WEIGHT_DATA[weight]};
+const TextStyled = styled.p<{
+  color: TEXT_COLOR_TYPE;
+  size: FONT_SIZE_TYPE;
+  weight: FONT_WEIGHT_TYPE;
+}>`
+  ${({ color, size, weight }) => {
+    return css`
+      color: ${TEXT_COLOR_DATA[color]};
+      font-family: Manrope, sans-serif;
+      font-size: ${FONT_SIZE_DATA[size]};
+      margin: 0;
+      font-weight: ${FONT_WEIGHT_DATA[weight]};
+    `;
+  }}
 `;
 
 export default Component;
