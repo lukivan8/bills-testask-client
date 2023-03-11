@@ -13,9 +13,11 @@ import Moment from "react-moment";
 import { BILL_ENTITY } from "../data/bill/const";
 import { StyledIonPage } from "../theme/global.styled";
 import { fetchBillData } from "../data/bill/action";
+import { Loader } from "../common/loader";
+import Status from "../epic/bill-create-form/frame/status";
 
 const Home = () => {
-  const { data, isLoading } = useQuery("bills", fetchBillData);
+  const { data, isLoading, isError,error } = useQuery("bills", fetchBillData);
 
   return (
     <StyledIonPage>
@@ -37,7 +39,9 @@ const Home = () => {
       <IonContent>
         <ListLayout>
           {isLoading ? (
-            <TextElem size="focus">Loading...</TextElem>
+            <Loader />
+          ) : isError ? (
+            <Status message={"Error! "+error}/>
           ) : (
             data.map((bill: BILL_ENTITY) => {
               return (
@@ -62,6 +66,7 @@ const Home = () => {
               );
             })
           )}
+
         </ListLayout>
       </IonContent>
     </StyledIonPage>

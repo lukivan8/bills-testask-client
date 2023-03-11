@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Component from "./component";
 import { FormikValues } from "formik";
 import { FormValues } from "./const";
@@ -8,10 +8,18 @@ import { BILL_ENTITY } from "../../data/bill/const";
 import { action } from "./action";
 
 const Container = () => {
-  const { mutate } = useMutation(action);
+  const [status, changeStatus] = useState("");
+  const { mutate, isLoading } = useMutation(action, {
+    onError: (e) => {
+      console.log(e);
+      changeStatus("Error! "+e)
+    },
+    onSuccess: () => {
+      changeStatus("Successful!")
+    }
+  });
 
   const handleSubmit = async (newBill: BILL_ENTITY) => {
-    console.log("New Bill" + newBill);
     await mutate(newBill);
   };
 
@@ -46,7 +54,7 @@ const Container = () => {
     return errors;
   };
 
-  return <Component handleSubmit={onSubmit} validation={validate} />;
+  return <Component loading={isLoading} status={status} handleSubmit={onSubmit} validation={validate} />;
 };
 
 export default Container;

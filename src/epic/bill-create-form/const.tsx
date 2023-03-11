@@ -1,71 +1,79 @@
-// Я не знаю как избавится от такого задания option_list в селектах
-
 import i18n from "../../lib/i18next";
+import { PROVIDER_ENUM, TRANSACTION_TYPE_ENUM } from "../../data/bill/const";
 
-export const API_URL = "http://localhost:8080/bill/create";
+export const API_URL = "http://localhost:3000/bill/create";
 
 export const PAYMENT_TYPES = [
-  {value: "internet", label: `${i18n.t("BILL.SERVICE_LABEL.INTERNET")}`},
-  {value: "commun", label: `${i18n.t("BILL.SERVICE_LABEL.COMMUNAL")}`},
-  {value: "education", label: `${i18n.t("BILL.SERVICE_LABEL.EDUCATION")}`}
+  {
+    value: TRANSACTION_TYPE_ENUM.INTERNET,
+    label: `${i18n.t("BILL.SERVICE_LABEL.1")}`,
+  },
+  {
+    value: TRANSACTION_TYPE_ENUM.COMMUNAL,
+    label: `${i18n.t("BILL.SERVICE_LABEL.2")}`,
+  },
+  {
+    value: TRANSACTION_TYPE_ENUM.EDUCATION,
+    label: `${i18n.t("BILL.SERVICE_LABEL.3")}`,
+  },
 ];
 
 
 export const PAYMENT_PROVIDERS = {
   [PAYMENT_TYPES[0].value]: [
     {
-      value: "fregat-tv",
-      label: `${i18n.t("BILL.PROVIDER_LABEL.INTERNET.FREGAT")}`,
+      value: PROVIDER_ENUM.FREGAT,
+      label: `${i18n.t("BILL.PROVIDER_LABEL.1.1")}`,
     },
     {
-      value: "kievstar",
-      label: `${i18n.t("BILL.PROVIDER_LABEL.INTERNET.KIEVSTAR")}`,
+      value: PROVIDER_ENUM.KIEVSTAR,
+      label: `${i18n.t("BILL.PROVIDER_LABEL.1.2")}`,
     },
     {
-      value: "ukrtelekom",
-      label: `${i18n.t("BILL.PROVIDER_LABEL.INTERNET.UKRTELEKOM")}`,
+      value: PROVIDER_ENUM.UKRTELEKOM,
+      label: `${i18n.t("BILL.PROVIDER_LABEL.1.3")}`,
     },
   ],
   [PAYMENT_TYPES[1].value]: [
     {
-      value: "comprov1",
-      label: `${i18n.t("BILL.PROVIDER_LABEL.COMMUNAL.COMPROV_1")}`,
+      value: PROVIDER_ENUM.COMPROV_1,
+      label: `${i18n.t("BILL.PROVIDER_LABEL.2.4")}`,
     },
     {
-      value: "comprov2",
-      label: `${i18n.t("BILL.PROVIDER_LABEL.COMMUNAL.COMPROV_2")}`,
+      value: PROVIDER_ENUM.COMPROV_2,
+      label: `${i18n.t("BILL.PROVIDER_LABEL.2.5")}`,
     },
     {
-      value: "comprov3",
-      label: `${i18n.t("BILL.PROVIDER_LABEL.COMMUNAL.COMPROV_3")}`,
+      value: PROVIDER_ENUM.COMPROV_3,
+      label: `${i18n.t("BILL.PROVIDER_LABEL.2.6")}`,
     },
   ],
   [PAYMENT_TYPES[2].value]: [
     {
-      value: "eduprov1",
-      label: `${i18n.t("BILL.PROVIDER_LABEL.EDUCATION.EDUPROV_1")}`,
+      value: PROVIDER_ENUM.EDUPROV_1,
+      label: `${i18n.t("BILL.PROVIDER_LABEL.3.7")}`,
     },
     {
-      value: "eduprov2",
-      label: `${i18n.t("BILL.PROVIDER_LABEL.EDUCATION.EDUPROV_2")}`,
+      value: PROVIDER_ENUM.EDUPROV_2,
+      label: `${i18n.t("BILL.PROVIDER_LABEL.3.8")}`,
     },
     {
-      value: "eduprov3",
-      label: `${i18n.t("BILL.PROVIDER_LABEL.EDUCATION.EDUPROV_3")}`,
+      value: PROVIDER_ENUM.EDUPROV_3,
+      label: `${i18n.t("BILL.PROVIDER_LABEL.3.9")}`,
     },
   ],
 };
 
 export const initialValues = {
-  transactionType: "",
-  provider: "",
+  transactionType: 0,
+  provider: 0,
   privateAccount: "",
   paymentAmount: "",
 };
 
 export interface FormValues {
-  transactionType: string;
-  provider: string;
+  transactionType: number;
+  provider: number;
   privateAccount: number | "";
   paymentAmount: number | "";
 }

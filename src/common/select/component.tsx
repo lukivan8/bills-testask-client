@@ -6,7 +6,7 @@ import { Field } from "formik";
 const Component: React.FC<{
   label: string;
   name: string;
-  optionList: { value: string; label: string }[];
+  optionList: { value: number; label: string }[];
 }> = ({ label, name, optionList }) => {
   return (
     <div>
