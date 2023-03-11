@@ -1,9 +1,16 @@
 import React from "react";
-import styled, {css} from "styled-components";
-import {FONT_SIZE_DATA, FONT_SIZE_ENUM} from "../../../theme/sizes";
+import styled, { css } from "styled-components";
+import { FONT_SIZE_DATA, FONT_SIZE_ENUM } from "../../../theme/sizes";
+import { STATUS_COLOR_DATA } from "../../../theme/color";
 
-const Status: React.FC<{ message?: string }> = ({message}) => {
-  return <React.Fragment>{message && <StyledContainer message={message}>{message}</StyledContainer>}</React.Fragment>
+const Status: React.FC<{ message?: string }> = ({ message }) => {
+  return (
+    <React.Fragment>
+      {message && (
+        <StyledContainer message={message}>{message}</StyledContainer>
+      )}
+    </React.Fragment>
+  );
 };
 
 const StyledContainer = styled.div<{ message: string }>`
@@ -14,8 +21,8 @@ const StyledContainer = styled.div<{ message: string }>`
   padding: 10px ;
   ${({message}) => {
     return css`
-      border-color: ${message === "Successful!" ? "#0da11c" : "#c9000a"};
-      color: ${message === "Successful!" ? "#0da11c" : "#c9000a"};
+      border-color: ${message === "Successful!" ? STATUS_COLOR_DATA["success"] : STATUS_COLOR_DATA["error"]};
+      color: ${message === "Successful!" ? STATUS_COLOR_DATA["success"] : STATUS_COLOR_DATA["error"]};
     `;
   }}
 `;
