@@ -1,6 +1,5 @@
 import React from "react";
 import { IonContent, IonItem, IonRouterLink } from "@ionic/react";
-import { ImageElem } from "../common/image-elem";
 import ChevronLeft from "../assets/svg/chevron-left.svg";
 import styled from "styled-components";
 import { Toolbar } from "../common/layout-toolbar";
@@ -12,7 +11,7 @@ import { StyledIonPage } from "../theme/global.styled";
 
 const BackButton = styled(IonItem)`
   --ion-item-background: #2c2c2c;
-  border-radius: 0px 10px 10px 0px;
+  border-radius: 0 10px 10px 0;
   --padding-start: 5px;
 `;
 
@@ -22,7 +21,7 @@ const Create = () => {
       <Toolbar>
         <BackButton slot="start">
           <IonRouterLink href="/">
-            <ImageElem src={ChevronLeft} />
+            <img src={ChevronLeft} alt="" />
           </IonRouterLink>
         </BackButton>
         <ItemWrapper slot="">

@@ -1,6 +1,5 @@
 import { IonContent, IonRouterLink } from "@ionic/react";
 import { TextElem } from "../common/text-elem";
-import { ImageElem } from "../common/image-elem";
 import NoteIcon from "../assets/svg/note-text.svg";
 import { Toolbar } from "../common/layout-toolbar";
 import { ItemWrapper } from "../common/item-wrapper";
@@ -14,10 +13,11 @@ import { BILL_ENTITY } from "../data/bill/const";
 import { StyledIonPage } from "../theme/global.styled";
 import { fetchBillData } from "../data/bill/action";
 import { Loader } from "../common/loader";
-import {Status} from "../common/status";
+import { Status } from "../common/status";
+import routes from "./routes";
 
 const Home = () => {
-  const { data, isLoading, isError,error } = useQuery("bills", fetchBillData);
+  const { data, isLoading, isError, error } = useQuery("bills", fetchBillData);
 
   return (
     <StyledIonPage>
@@ -31,8 +31,8 @@ const Home = () => {
           />
         </ItemWrapper>
         <ItemWrapper slot="end">
-          <IonRouterLink href="/create">
-            <ImageElem src={NoteIcon} width={24} height={24} />
+          <IonRouterLink href={routes[2].path}>
+            <img src={NoteIcon} width={24} height={24} alt="" />
           </IonRouterLink>
         </ItemWrapper>
       </Toolbar>
@@ -41,7 +41,7 @@ const Home = () => {
           {isLoading ? (
             <Loader />
           ) : isError ? (
-            <Status message={"Error! "+error}/>
+            <Status message={"Error! " + error} />
           ) : (
             data.map((bill: BILL_ENTITY) => {
               return (
@@ -66,7 +66,6 @@ const Home = () => {
               );
             })
           )}
-
         </ListLayout>
       </IonContent>
     </StyledIonPage>
