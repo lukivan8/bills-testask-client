@@ -14,7 +14,7 @@ import { BILL_ENTITY } from "../data/bill/const";
 import { StyledIonPage } from "../theme/global.styled";
 import { fetchBillData } from "../data/bill/action";
 import { Loader } from "../common/loader";
-import Status from "../epic/bill-create-form/frame/status";
+import {Status} from "../common/status";
 
 const Home = () => {
   const { data, isLoading, isError,error } = useQuery("bills", fetchBillData);

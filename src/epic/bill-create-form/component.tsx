@@ -7,7 +7,7 @@ import { Stack } from "../../common/stack";
 import { Button } from "../../common/button";
 import { initialValues, PAYMENT_PROVIDERS, PAYMENT_TYPES } from "./const";
 import { FormikErrors } from "formik/dist/types";
-import Status from "./frame/status";
+import {Status} from "../../common/status";
 import {Loader} from "../../common/loader";
 
 const Component: React.FC<{
