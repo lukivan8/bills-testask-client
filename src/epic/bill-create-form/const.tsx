@@ -78,3 +78,9 @@ export interface FormValues {
   paymentAmount: number | "";
 }
 
+export enum FORM_FIELDS {
+  TRANSACTION_TYPE = "transactionType",
+  PROVIDER = "provider",
+  PRIVATE_ACCOUNT = "privateAccount",
+  PAYMENT_AMOUNT = "paymentAmount",
+}

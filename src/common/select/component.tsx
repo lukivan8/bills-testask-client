@@ -1,17 +1,18 @@
 import React from "react";
 import styled from "styled-components";
 import { TextElem } from "../text-elem";
-import { Field } from "formik";
 
 const Component: React.FC<{
   label: string;
   name: string;
   optionList: { value: number; label: string }[];
-}> = ({ label, name, optionList }) => {
+  onChange: any;
+  value: any;
+}> = ({ label, name, optionList, onChange, value }) => {
   return (
     <div>
       <TextElem weight="bold" tid={label ? label : ""} />
-      <Field name={name} as={Select}>
+      <Select name={name} value={value} onChange={onChange}>
         <option value=""></option>
         {optionList.map((option) => {
           return (
@@ -20,7 +21,7 @@ const Component: React.FC<{
             </option>
           );
         })}
-      </Field>
+      </Select>
     </div>
   );
 };

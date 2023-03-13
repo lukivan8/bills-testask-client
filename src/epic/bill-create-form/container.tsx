@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Component from "./component";
-import { FormikValues } from "formik";
-import { FormValues } from "./const";
+import { FormikValues, useFormik } from "formik";
+import { FORM_FIELDS, FormValues, initialValues } from "./const";
 import { FormikErrors } from "formik/dist/types";
 import { useMutation } from "react-query";
 import { BILL_ENTITY } from "../../data/bill/const";
@@ -9,14 +9,15 @@ import { action } from "./action";
 
 const Container = () => {
   const [status, changeStatus] = useState("");
+
   const { mutate, isLoading } = useMutation(action, {
     onError: (e) => {
       console.log(e);
-      changeStatus("Error! "+e)
+      changeStatus("Error! " + e);
     },
     onSuccess: () => {
-      changeStatus("Successful!")
-    }
+      changeStatus("Successful!");
+    },
   });
 
   const handleSubmit = async (newBill: BILL_ENTITY) => {
@@ -24,8 +25,8 @@ const Container = () => {
   };
 
   const onSubmit = (values: any, { setSubmitting, resetForm }: any) => {
-    handleSubmit(values);
     console.log(values);
+    handleSubmit(values);
     setSubmitting(false);
     resetForm();
   };
@@ -54,7 +55,21 @@ const Container = () => {
     return errors;
   };
 
-  return <Component loading={isLoading} status={status} handleSubmit={onSubmit} validation={validate} />;
+  const formik:FormikValues = useFormik({
+    initialValues,
+    validate,
+    onSubmit,
+  });
+  const getFieldValue = (name: FORM_FIELDS) => formik.values[name];
+  return (
+    <Component
+      loading={isLoading}
+      status={status}
+      handleSubmit={onSubmit}
+      validation={validate}
+      formik={formik}
+      getFieldValue={getFieldValue}
+    />
+  );
 };
-
 export default Container;

@@ -2,24 +2,26 @@ import React from "react";
 import { TextElem } from "../text-elem";
 import styled from "styled-components";
 import { useTranslation } from "react-i18next";
-import { Field } from "formik";
 
 const Component: React.FC<{
   label?: string;
   placeholder?: string;
   name: string;
   type?: string;
-}> = ({ label, placeholder, name, type }) => {
+  value: any;
+  onChange: any;
+}> = ({ label, placeholder, name, type, value, onChange }) => {
   const { t } = useTranslation();
   return (
     <div>
       {label && <TextElem weight="bold" tid={label} />}
-      <Field
+      <Input
         type={type}
-        placeholder={placeholder ? t(placeholder) : ""}
+        value={value}
+        placeholder={placeholder ? `${t(placeholder)}` : ""}
+        onChange={onChange}
         name={name}
-        as={Input}
-      ></Field>
+      ></Input>
     </div>
   );
 };

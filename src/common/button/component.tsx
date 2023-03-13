@@ -1,4 +1,4 @@
-import React from "react";
+import React, { MouseEventHandler } from "react";
 import { IonButton } from "@ionic/react";
 import styled from "styled-components";
 import { TextElem } from "../text-elem";
@@ -15,9 +15,23 @@ const Component: React.FC<{
   type?: BUTTON_FUNCTION_TYPE;
   disabled?: boolean;
   href?: string;
-}> = ({ label, fill = BUTTON_FILL_ENUM.SOLID, type, disabled, href }) => {
+  onClick?: MouseEventHandler<any> | undefined;
+}> = ({
+  label,
+  fill = BUTTON_FILL_ENUM.SOLID,
+  type,
+  disabled,
+  href,
+  onClick,
+}) => {
   return (
-    <Button href={href} disabled={disabled} type={type} fill={fill}>
+    <Button
+      href={href}
+      disabled={disabled}
+      type={type}
+      fill={fill}
+      onClick={onClick}
+    >
       <TextElem
         weight="semi-bold"
         color={BUTTON_TEXT_COLOR[fill]}
