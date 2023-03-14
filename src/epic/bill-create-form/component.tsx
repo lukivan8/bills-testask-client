@@ -18,11 +18,18 @@ const Component: React.FC<{
   validation: (
     values: FormikValues
   ) => void | object | Promise<FormikErrors<FormikValues>>;
-  status: string;
   loading: boolean;
   formik: FormikValues;
   getFieldValue: Function;
-}> = ({ status, loading, formik, getFieldValue }) => {
+  getErrorMessage?: Function;
+  isSuccess?: boolean;
+  getCurrentStatusMessage:Function
+}> = ({
+  loading,
+  formik,
+  getFieldValue,
+  getCurrentStatusMessage
+}) => {
   return (
     <form onSubmit={formik.handleSubmit}>
       {loading && <Loader />}
@@ -84,7 +91,7 @@ const Component: React.FC<{
           label="BILL.FORM_BUTTON.CREATE"
         />
       </Stack>
-      <Status message={status} />
+      <Status message={getCurrentStatusMessage()} />
     </form>
   );
 };

@@ -84,3 +84,9 @@ export enum FORM_FIELDS {
   PRIVATE_ACCOUNT = "privateAccount",
   PAYMENT_AMOUNT = "paymentAmount",
 }
+
+export interface ACTION_ERROR_INTER {
+  error: string;
+  message: string;
+  statusCode: string;
+}

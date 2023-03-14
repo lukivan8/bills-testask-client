@@ -1,27 +1,39 @@
-import React, { useState } from "react";
+import React from "react";
 import Component from "./component";
 import { FormikValues, useFormik } from "formik";
-import { FORM_FIELDS, FormValues, initialValues } from "./const";
+import {
+  ACTION_ERROR_INTER,
+  FORM_FIELDS,
+  FormValues,
+  initialValues,
+} from "./const";
 import { FormikErrors } from "formik/dist/types";
 import { useMutation } from "react-query";
 import { BILL_ENTITY } from "../../data/bill/const";
 import { action } from "./action";
 
 const Container = () => {
-  const [status, changeStatus] = useState("");
+  const mutation = useMutation(action);
 
-  const { mutate, isLoading } = useMutation(action, {
-    onError: (e) => {
-      console.log(e);
-      changeStatus("Error! " + e);
-    },
-    onSuccess: () => {
-      changeStatus("Successful!");
-    },
-  });
+  const getErrorMessage = () => {
+    const error: ACTION_ERROR_INTER = mutation.error as ACTION_ERROR_INTER;
+    if (error) {
+      return error.message;
+    }
+    return "";
+  };
+
+  const currentStatusMessage = () => {
+    switch (mutation.status) {
+      case "success":
+        return "Successful!";
+      case "error":
+        return getErrorMessage();
+    }
+  };
 
   const handleSubmit = async (newBill: BILL_ENTITY) => {
-    await mutate(newBill);
+    await mutation.mutate(newBill);
   };
 
   const onSubmit = (values: any, { setSubmitting, resetForm }: any) => {
@@ -55,7 +67,7 @@ const Container = () => {
     return errors;
   };
 
-  const formik:FormikValues = useFormik({
+  const formik: FormikValues = useFormik({
     initialValues,
     validate,
     onSubmit,
@@ -63,12 +75,12 @@ const Container = () => {
   const getFieldValue = (name: FORM_FIELDS) => formik.values[name];
   return (
     <Component
-      loading={isLoading}
-      status={status}
+      loading={mutation.isLoading}
       handleSubmit={onSubmit}
       validation={validate}
       formik={formik}
       getFieldValue={getFieldValue}
+      getCurrentStatusMessage={currentStatusMessage}
     />
   );
 };
