@@ -1,3 +1,3 @@
 import Component from "./component";
 
-export {Component as ImageElem}
+export { Component as Loader };

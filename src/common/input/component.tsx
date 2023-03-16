@@ -1,28 +1,29 @@
-import React from 'react';
-import {TextElem} from "../text-elem";
+import React from "react";
+import { TextElem } from "../text-elem";
 import styled from "styled-components";
-import {useTranslation} from "react-i18next";
-import {Field} from "formik";
+import { useTranslation } from "react-i18next";
 
-interface PropTypes {
-  label?: string,
-  placeholder?: string
-  name?: string
-}
-
-
-
-const Component = (props: PropTypes) => {
-
-
-  const {t} = useTranslation()
+const Component: React.FC<{
+  label?: string;
+  placeholder?: string;
+  name: string;
+  type?: string;
+  value: any;
+  onChange: any;
+}> = ({ label, placeholder, name, type, value, onChange }) => {
+  const { t } = useTranslation();
   return (
-      <div>
-        <TextElem weight="bold" tid={props.label ? props.label : ""}/>
-        <Field placeholder={props.placeholder ? t(props.placeholder) : ""} name={props.name} as={Input}>
-        </Field>
-      </div>
-  )
+    <div>
+      {label && <TextElem weight="bold" tid={label} />}
+      <Input
+        type={type}
+        value={value}
+        placeholder={placeholder ? `${t(placeholder)}` : ""}
+        onChange={onChange}
+        name={name}
+      ></Input>
+    </div>
+  );
 };
 
 const Input = styled.input`
@@ -36,6 +37,14 @@ const Input = styled.input`
   width: 100%;
   box-shadow: none;
   border: none;
-`
+
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  -moz-appearance: textfield;
+`;
 
 export default Component;

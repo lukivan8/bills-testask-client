@@ -1,33 +1,53 @@
-import {ReactNode} from 'react';
-import styled from "styled-components";
+import { ReactNode } from "react";
+import styled, { css } from "styled-components";
+import {
+  FLEXBOX_GAP_DATA,
+  FLEXBOX_GAP_ENUM,
+  FLEXBOX_GAP_TYPE,
+} from "../../theme/sizes";
 
-interface PropTypes {
+const Component: React.FC<{
   children?: ReactNode;
-  gap?: number;
+  gap?: FLEXBOX_GAP_TYPE;
   justifyContent?: string;
   alignItems?: string;
   width?: string;
-}
-
-const Component = (props: PropTypes) => {
+}> = ({
+  children,
+  gap = FLEXBOX_GAP_ENUM.NONE,
+  justifyContent = "center",
+  alignItems = "center",
+  width = "100%",
+}) => {
   return (
-    <Stack gap={props.gap}
-           justifyContent={props.justifyContent}
-           alignItems={props.alignItems}
-           width={props.width}>
-      {props.children}
+    <Stack
+      gap={gap}
+      justifyContent={justifyContent}
+      alignItems={alignItems}
+      width={width}
+    >
+      {children}
     </Stack>
   );
 };
 
-const Stack = styled.div`
-  display: flex;
-  margin: 0 auto;
-  flex-direction: row;
-  justify-content: ${(props: PropTypes) => props.justifyContent ? props.justifyContent : "center"};
-  align-items: ${(props: PropTypes) => props.alignItems ? props.alignItems : "center"};
-  gap: ${(props: PropTypes) => props.gap ? props.gap + "rem" : "0"};
-  max-width: ${(props: PropTypes) => props.width ? props.width + "%" : ""};
-`
+const Stack = styled.div<{
+  width: string;
+  gap: FLEXBOX_GAP_TYPE;
+  justifyContent: string;
+  alignItems: string;
+}>`
+  ${({ width, justifyContent, alignItems, gap }) => {
+    return css`
+      display: flex;
+      margin: 0 auto;
+      flex-direction: row;
+      max-width: ${width};
+      justify-content: ${justifyContent};
+      align-items: ${alignItems};
+      gap: ${FLEXBOX_GAP_DATA[gap]};
+    `;
+  }}
+`;
 
 export default Component;

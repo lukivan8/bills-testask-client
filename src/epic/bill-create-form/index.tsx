@@ -1,3 +1,3 @@
 import Container from "./container";
 
-export {Container as BillForm}
+export { Container as BillForm };

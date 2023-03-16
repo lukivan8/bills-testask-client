@@ -1,3 +1,3 @@
 import Component from "./component";
 
-export {Component as Input}
+export { Component as Input };

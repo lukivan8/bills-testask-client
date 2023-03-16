@@ -1,50 +1,87 @@
-import React from 'react';
-import {Formik} from "formik";
+import React from "react";
 import Component from "./component";
+import { FormikValues, useFormik } from "formik";
+import {
+  ACTION_ERROR_INTER,
+  FORM_FIELDS,
+  FormValues,
+  initialValues,
+} from "./const";
+import { FormikErrors } from "formik/dist/types";
+import { useMutation } from "react-query";
+import { BILL_ENTITY } from "../../data/bill/const";
+import { action } from "./action";
 
-interface PropTypes {
-  submit: Function
-}
+const Container = () => {
+  const mutation = useMutation(action);
 
-const paymentTypes = [
-  {value: "internet", label: "Оплата інтернет послуг"},
-  {value: "commun", label: "Оплата коммунальних послуг"},
-  {value: "education", label: "Оплата освіти"}
-];
+  const getErrorMessage = () => {
+    const error: ACTION_ERROR_INTER = mutation.error as ACTION_ERROR_INTER;
+    if (error) {
+      return error.message;
+    }
+    return "";
+  };
 
-const paymentProviders = {
-  "internet": [
-    {value: "fregat-tv", label: "Фрегат ТВ, ООО"},
-    {value: "kievstar", label: "АО Киевстар"},
-    {value: "ukrtelekom", label: "ПАО Укртелеком"}
-  ],
-  "commun": [
-    {value: "comprov1", label: "Провайдер услуг 1"},
-    {value: "comprov2", label: "Провайдер услуг 2"},
-    {value: "comprov3", label: "Провайдер услуг 3"}
-  ],
-  "education": [
-    {value: "eduprov1", label: "Провайдер обучения 1"},
-    {value: "eduprov2", label: "Провайдер обучения 2"},
-    {value: "eduprov3", label: "Провайдер обучения 3"}
-  ]
-};
+  const currentStatusMessage = () => {
+    switch (mutation.status) {
+      case "success":
+        return "Successful!";
+      case "error":
+        return getErrorMessage();
+    }
+  };
 
-const Container = (props: PropTypes) => {
+  const handleSubmit = async (newBill: BILL_ENTITY) => {
+    await mutation.mutate(newBill);
+  };
+
+  const onSubmit = (values: any, { setSubmitting, resetForm }: any) => {
+    console.log(values);
+    handleSubmit(values);
+    setSubmitting(false);
+    resetForm();
+  };
+
+  const validate = (values: FormikValues) => {
+    const errors: FormikErrors<FormValues> = {};
+
+    if (!values.transactionType) {
+      errors.transactionType = "Required";
+    }
+
+    if (!values.provider) {
+      errors.provider = "Required";
+    }
+
+    if (!values.privateAccount && values.privateAccount !== 0) {
+      errors.privateAccount = "Required";
+    } else if (isNaN(Number(values.privateAccount))) {
+      errors.privateAccount = "Must be a positive number";
+    }
+    if (!values.paymentAmount && values.paymentAmount !== 0) {
+      errors.paymentAmount = "Required";
+    } else if (isNaN(Number(values.paymentAmount))) {
+      errors.paymentAmount = "Must be a number";
+    }
+    return errors;
+  };
+
+  const formik: FormikValues = useFormik({
+    initialValues,
+    validate,
+    onSubmit,
+  });
+  const getFieldValue = (name: FORM_FIELDS) => formik.values[name];
   return (
-    <Formik onSubmit={(values:any, {setSubmitting}:any) => {
-      // @ts-ignore
-      values.privateAccount = Number(values.privateAccount)
-      // @ts-ignore
-      values.paymentAmount = Number(values.paymentAmount)
-      props.submit(values)
-      console.log(values)
-      setSubmitting(false)
-    }}
-            initialValues={{transactionType: "", provider: "", privateAccount: "", paymentAmount: ""}}>
-      {({values, handleChange, setFieldValue}:any)=>(<Component setFieldValue={setFieldValue} handleChange={handleChange} values={values} transactionTypes={paymentTypes} providers={paymentProviders}/>)}
-    </Formik>
+    <Component
+      loading={mutation.isLoading}
+      handleSubmit={onSubmit}
+      validation={validate}
+      formik={formik}
+      getFieldValue={getFieldValue}
+      getCurrentStatusMessage={currentStatusMessage}
+    />
   );
 };
-
 export default Container;
